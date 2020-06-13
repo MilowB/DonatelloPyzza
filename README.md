@@ -1,7 +1,7 @@
 # EnvironmentGrid
 A simple environment. A turtle can move into a grid.
 
-Graphism made with PyGame
+Graphism are made with PyGame
 
 
 # How to use ?
