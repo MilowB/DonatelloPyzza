@@ -1,7 +1,9 @@
 # EnvironmentGrid
 
 A simple environment for teaching purpose. 
-A turtle can move in a grid and touch each cell.
+A turtle can move in a grid and touch each cell until it find the salad.
+
+Possibility to add walls and automatically generate the grids.
 
 
 # How to use ?
