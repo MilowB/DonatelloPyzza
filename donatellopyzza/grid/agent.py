@@ -4,7 +4,6 @@ from careTaker import *
 from orientation import *
 from random import randint
 import pkg_resources
-from pathlib import Path
 
 class Agent:
     def __init__(self, name, begin, color):

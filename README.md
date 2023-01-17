@@ -1,4 +1,4 @@
-# Donatello
+# DonatelloPyzza
 
 A simple environment to help teenagers learning Python in high school. 
 A turtle can move in a grid and touch each cell until it finds the salad.

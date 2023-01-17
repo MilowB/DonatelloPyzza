@@ -1,5 +1,7 @@
-from .turtleAgent import Turtle
-from .envBuilder import *
+from turtleAgent import Turtle
+from envBuilder import *
+# @DEBUG from .turtleAgent import Turtle
+# @DEBUG ffrom .envBuilder import *
 import time
 import random
 

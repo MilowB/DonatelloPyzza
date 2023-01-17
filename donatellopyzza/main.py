@@ -1,5 +1,5 @@
-from donatellopyzza import Game
-from donatellopyzza import Action
+from game import *
+from action import *
 import random
 import time
 
@@ -17,7 +17,5 @@ if __name__ == '__main__':
     i = 0
     while i < 10:
         time.sleep(0.3)
-        r = random.randint(0, 3)
-        actions = [Action.FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
-        result = turtle.execute(actions[r])
+        result = turtle.execute(Action.FORWARD)
         i += 1

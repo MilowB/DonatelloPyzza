@@ -18,6 +18,8 @@ class Grid:
     Retour : résultat du mouvement de l'agent (1 si mur, 2 sinon)
     '''
     def step(self, agent, action):
+        if not type(action) is int:
+            action = int(action.value)
         square = None
         square_touched = None
         #Mise a jour de la pile de cases parcourues
