@@ -1,10 +1,9 @@
-# EnvironmentGrid
+# TurtleWorld4Teens
 
-A simple environment for teaching purpose. 
-A turtle can move in a grid and touch each cell until it find the salad.
+A simple environment to help teenagers learning Python in high school. 
+A turtle can move in a grid and touch each cell until it finds the salad.
 
-Possibility to add walls and automatically generate the grids.
-
+You can manually create the grid world in which the turtle is moving or generate it automatically.
 
 # How to use ?
 
