@@ -14,7 +14,7 @@ class Agent:
         self.originator = Originator()
         self.caretaker = CareTaker()
         self.position = None
-        self.turtle = pygame.image.load(os.path.join('Images', 'turtle_small.png'))
+        self.turtle = pygame.image.load(os.path.join('../data/images', 'turtle_small.png'))
         self.angle = 0
 
     def setCurrentPosition(self, position):

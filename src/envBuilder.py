@@ -1,11 +1,11 @@
 import os, sys, inspect
 
 #Pour inclure les fichiers de l'environnement
-cmd_subfolder_grid = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"Grid")))
+cmd_subfolder_grid = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"grid")))
 if cmd_subfolder_grid not in sys.path:
     sys.path.insert(0, cmd_subfolder_grid)
 
-from Grid.parser import Parser
+from parser import Parser
 
 '''
 Objectif :
@@ -16,7 +16,7 @@ class EnvBuilder:
         self.name = name
 
     def build(self):
-        path = "Data/Environments/"
+        path = "../data/environments/"
 
         parser = Parser(path + self.name)
         return parser.parse()
