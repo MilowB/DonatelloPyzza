@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Donatello"
+version = "1.1.16"
+authors = [
+  { name="Mickaël Bettinelli", email="mickael.bettinelli@univ-smb.fr" },
+]
+description = "A simple grid environment to learn Python"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/IRCDesBropains/TurtleWorld4Teens"
+"Bug Tracker" = "https://github.com/IRCDesBropains/TurtleWorld4Teens/pulls"
+
+[tool.hatch.build]
+include = [
+  "turtleworld4teens/*"
+]
