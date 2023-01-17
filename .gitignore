@@ -1,0 +1,4 @@
+dist/*
+pyproject.toml
+turtleworld4teens/__pycache__/*
+turtleworld4teens/grid/__pycache__/*

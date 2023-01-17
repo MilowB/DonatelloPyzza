@@ -26,6 +26,9 @@ class GUI:
     Param : map - la grille
     '''
     def update(self, map):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                exit()
         self.squareToDisplay = []
         self.agentToDisplay = []
         for square in map.squares:
