@@ -18,3 +18,13 @@ OR if not working :
 Then :
 
 > python main.py
+
+
+'''
+Actions
+-------
+0 - avancer
+1 - toucher
+2 - rotation gauche
+3 - rotation droite
+'''
