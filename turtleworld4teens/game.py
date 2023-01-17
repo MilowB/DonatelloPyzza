@@ -1,4 +1,4 @@
-from turtle import Turtle
+from turtleAgent import Turtle
 from envBuilder import *
 import time
 import random
