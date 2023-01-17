@@ -1,5 +1,5 @@
-from turtleAgent import Turtle
-from envBuilder import *
+from .turtleAgent import Turtle
+from .envBuilder import *
 import time
 import random
 

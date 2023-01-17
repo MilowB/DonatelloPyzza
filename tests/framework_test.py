@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # display the interface (or not)
     __GUI__ = True
 
-    game = Game(__ENVIRONMENT__, __GUI__)
+    game = game.Game(__ENVIRONMENT__, __GUI__)
     # returns a turtle that execute actions on its environment
     turtle = game.start()
     
