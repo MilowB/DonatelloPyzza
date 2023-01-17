@@ -1,4 +1,4 @@
-from turtleworld4teens import game
+from turtleworld4teens import Game
 import random
 import time
 
@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # display the interface (or not)
     __GUI__ = True
 
-    game = game.Game(__ENVIRONMENT__, __GUI__)
+    game = Game(__ENVIRONMENT__, __GUI__)
     # returns a turtle that execute actions on its environment
     turtle = game.start()
     
