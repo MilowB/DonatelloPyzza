@@ -16,7 +16,7 @@ if __name__ == '__main__':
     turtle = game.start()
     
     i = 0
-    while i < 1000:
+    while i < 15:
         time.sleep(0.3)
         r = random.randint(0, 3)
         actions = [Action.FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
