@@ -1,12 +1,11 @@
 from game import *
-from action import *
 import random
 import time
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':    
     # the name of the environment
-    __ENVIRONMENT__ = "maze"
+    __ENVIRONMENT__ = envname
     # display the interface (or not)
     __GUI__ = True
 

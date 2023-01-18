@@ -1,5 +1,6 @@
 from donatellopyzza import Game
 from donatellopyzza import Action
+from donatellopyzza import Feedback
 import random
 import time
 
@@ -18,5 +19,6 @@ if __name__ == '__main__':
     result = turtle.execute(Action.FORWARD)
     result = turtle.execute(Action.FORWARD)
     result = turtle.execute(Action.TURN_RIGHT)
+    result = turtle.execute(Action.FORWARD)
     result = turtle.execute(Action.FORWARD)
     result = turtle.execute(Action.FORWARD)

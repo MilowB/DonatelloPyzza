@@ -1,2 +1,3 @@
 from .game import Game
-from .action import Action
+from .game import Action
+from .game import Feedback

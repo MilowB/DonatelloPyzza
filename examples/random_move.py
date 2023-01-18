@@ -1,5 +1,6 @@
 from donatellopyzza import Game
 from donatellopyzza import Action
+from donatellopyzza import Feedback
 import random
 import time
 
@@ -20,4 +21,5 @@ if __name__ == '__main__':
         r = random.randint(0, 3)
         actions = [Action.FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
         result = turtle.execute(actions[r])
+        print(result)
         i += 1
