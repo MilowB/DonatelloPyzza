@@ -25,7 +25,7 @@ First, import the right modules to run the game:
 Depending on your action, the game can provide you on of the following feedback:
 
     COLLISION -> you just tried to walk in a wall !
-    MOVED -> you successly moved
+    MOVED -> you successfully moved
     IS_ON_PIZZA -> your turtle is on the pizza (congratulation!)
     TOUCHED_WALL -> you just touched a wall
     TOUCHED_NOTHING -> the touched cell is empty (no wall, no pizza, you can walk on it)
@@ -35,7 +35,7 @@ Depending on your action, the game can provide you on of the following feedback:
 Now you know how to play, let's create the game and its environment:
 
     # specify the name of the environment
-    __ENVIRONMENT__ = "hard_maze"
+    __ENVIRONMENT__ = "maze"
     # display the interface (or not)
     __GUI__ = True
 
