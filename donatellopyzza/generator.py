@@ -6,10 +6,8 @@ cmd_subfolder_grid = os.path.realpath(os.path.abspath(os.path.join(os.path.split
 if cmd_subfolder_grid not in sys.path:
     sys.path.insert(0, cmd_subfolder_grid)
 
-from .grid import Grid
-from .parser import Parser
-# @DEBUG from .grid import *
-# @DEBUG from .parser import *
+from grid import Grid
+from parser import Parser
 
 import random
 import math

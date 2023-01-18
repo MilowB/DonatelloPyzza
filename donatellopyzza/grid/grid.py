@@ -1,6 +1,7 @@
 from map import *
 from gui import *
 from turn import *
+import pygame
 
 class Feedback(Enum):
     COLLISION = 0, "Collision"
@@ -37,6 +38,11 @@ class Grid:
     Retour : résultat du mouvement de l'agent (1 si mur, 2 sinon)
     '''
     def step(self, agent, action):
+        # check the game events before executing a new action
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:  
+                exit()
+
         if not type(action) is int:
             action = int(action.value)
         square = None

@@ -7,7 +7,7 @@ import time
 
 if __name__ == '__main__':
     # the name of the environment
-    __ENVIRONMENT__ = "maze"
+    __ENVIRONMENT__ = "hard_maze"
     # display the interface (or not)
     __GUI__ = True
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     turtle = game.start()
     
     i = 0
-    while i < 10:
+    while i < 1000:
         time.sleep(0.3)
         r = random.randint(0, 3)
         actions = [Action.FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
