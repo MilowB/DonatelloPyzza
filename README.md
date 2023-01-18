@@ -1,9 +1,9 @@
 # DonatelloPyzza
 
-A simple environment to help teenagers learning Python in high school. 
-A turtle can move in a grid and touch each cell until it finds the salad.
+A simple environment to help beginners learn Python in high school. 
+A turtle can move through a grid and touch each cell until it finds the pizza.
 
-You can manually create the grid world in which the turtle is moving or generate it automatically (soon).
+You can manually create the grid world in which the turtle moves or generate it automatically (soon).
 
 # Documentation
 
@@ -13,8 +13,8 @@ First, import the right modules to run the game:
     from donatellopyzza import Action
     from donatellopyzza import Feedback
 
-`Game` is a class that you will use to create a game instance. `Action` and `Feedback` define the different action and feedback types. You can use the following actions in your code:
 
+`Game` is a class that you will use to create a game instance. `Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
 
     FORWARD -> make your turtle go one step forward
     TURN_RIGHT -> your turtle will turn on its right
@@ -23,7 +23,6 @@ First, import the right modules to run the game:
 
 
 Depending on your action, the game can provide you on of the following feedback:
-
 
     COLLISION -> you just tried to walk in a wall !
     MOVED -> you successly moved
@@ -35,24 +34,25 @@ Depending on your action, the game can provide you on of the following feedback:
 
 Now you know how to play, let's create the game and its environment:
 
-        # specify the name of the environment
-        __ENVIRONMENT__ = "hard_maze"
-        # display the interface (or not)
-        __GUI__ = True
+    # specify the name of the environment
+    __ENVIRONMENT__ = "hard_maze"
+    # display the interface (or not)
+    __GUI__ = True
 
-        game = Game(__ENVIRONMENT__, __GUI__)
-        # returns a turtle that execute actions on its environment
-        turtle = game.start()
+    game = Game(__ENVIRONMENT__, __GUI__)
+    # returns a turtle that execute actions on its environment
+    turtle = game.start()
         
-Once the game starts, you retrieve a turtle instance that you can move on the board.
+
+Once the game has started, you get a turtle instance which you can move around the board.
 To do this, the following instruction can be used:
 
     feedback = turtle.execute(Action.FORWARD)
     print(feedback)
 
-You can use the feedback of the `execute()` method to know what happened after your action.
+You can use the feedback from the `execute()` method to see what happened after your action.
 
-For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository of this project.
+For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository for this project.
 
 
 Have fun!
