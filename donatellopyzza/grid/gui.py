@@ -1,5 +1,6 @@
-import sys, pygame
 from random import randint
+import sys, pygame
+import pkg_resources
 
 class GUI:
     def __init__(self, height, width):
@@ -12,6 +13,8 @@ class GUI:
         self.disp = False
         self.colors = []
         self.shadeColors = []
+        path = pkg_resources.resource_filename(__name__, "../data/images/pizza.png")
+        self.pizza = pygame.image.load(path)
         for i in range(height * width):
             r = randint(15, 255)
             g = randint(0, 160)
@@ -26,9 +29,6 @@ class GUI:
     Param : map - la grille
     '''
     def update(self, map):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                exit()
         self.squareToDisplay = []
         self.agentToDisplay = []
         for square in map.squares:
@@ -90,13 +90,16 @@ class GUI:
         self.screen.fill(black)
         for i in range(len(self.squareToDisplay)):
             color = pygame.Color(0, 180, 0, 255)
-            if self.squareToDisplay[i][0] > -1:
-                color = self.shadeColors[self.squareToDisplay[i][0]]
-            elif self.squareToDisplay[i][0] == -2:
-                color = pygame.Color(255, 255, 255, 255)
-            elif self.squareToDisplay[i][0] == -3:
-                color = pygame.Color(200, 0, 0, 255)
+            if not self.squareToDisplay[i][0] is None:
+                if self.squareToDisplay[i][0] > -1:
+                    color = self.shadeColors[self.squareToDisplay[i][0]]
+                elif self.squareToDisplay[i][0] == -2:
+                    color = pygame.Color(255, 255, 255, 255)
+                elif self.squareToDisplay[i][0] == -3:
+                    color = pygame.Color(200, 0, 0, 255)
             pygame.draw.rect(self.screen,  color, self.squareToDisplay[i][1], 0)
+            if self.squareToDisplay[i][0] is None:
+                self.screen.blit(self.pizza, self.squareToDisplay[i][1])
         for i in range(len(self.agentToDisplay)):
             self.agentToDisplay[i][0].draw(self.screen, self.agentToDisplay[i][1])
         pygame.display.flip()

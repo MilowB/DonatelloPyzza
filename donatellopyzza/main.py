@@ -14,8 +14,24 @@ if __name__ == '__main__':
     # returns a turtle that execute actions on its environment
     turtle = game.start()
     
-    i = 0
-    while i < 10:
-        time.sleep(0.3)
-        result = turtle.execute(Action.FORWARD)
-        i += 1
+    result = turtle.execute(Action.FORWARD)
+    result = turtle.execute(Action.TOUCH)
+    print(result)
+    time.sleep(0.3)
+    result = turtle.execute(Action.FORWARD)
+    result = turtle.execute(Action.TOUCH)
+    print(result)
+    time.sleep(0.3)
+    result = turtle.execute(Action.TURN_RIGHT)
+    result = turtle.execute(Action.TOUCH)
+    print(result)
+    time.sleep(0.3) 
+    result = turtle.execute(Action.FORWARD)
+    print(result)
+    time.sleep(0.3)
+    result = turtle.execute(Action.FORWARD)
+    print(result)
+    time.sleep(0.3)
+    result = turtle.execute(Action.FORWARD)
+    print(result)
+    time.sleep(0.3)

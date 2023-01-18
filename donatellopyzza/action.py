@@ -2,9 +2,9 @@ from enum import Enum
 
 class Action(Enum):
     FORWARD = 0, "Forward"
-    TOUCH = 1, "Touch"
+    TURN_RIGHT = 1, "Turn_right"
     TURN_LEFT = 2, "Turn_left"
-    TURN_RIGHT = 3, "Turn_right"
+    TOUCH = 3, "Touch"
 
     def __new__(cls, value, name):
         member = object.__new__(cls)

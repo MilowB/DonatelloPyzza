@@ -2,6 +2,23 @@ from map import *
 from gui import *
 from turn import *
 
+class Feedback(Enum):
+    COLLISION = 0, "Collision"
+    MOVED = 1, "Moved"
+    IS_ON_PIZZA = 2, "Is_on_pizza"
+    TOUCHED_WALL = 3, "Touched_wall"
+    TOUCHED_NOTHING = 4, "Touched_nothing"
+    TOUCHED_PIZZA = 5, "Touched_pizza"
+
+    def __new__(cls, value, name):
+        member = object.__new__(cls)
+        member._value_ = value
+        member.fullname = name
+        return member
+
+    def __int__(self):
+        return self.value
+
 class Grid:
     def __init__(self, g, m, a, d, name):
         self.display = d
@@ -11,6 +28,8 @@ class Grid:
         self.map = m
         self.debug = False
         self.agents = a
+        self.nbActions = 0
+        self.foundPizza = False
 
     '''
     Objectif : Fait executer a l'agent une action
@@ -27,10 +46,10 @@ class Grid:
         agent.savePosition(squareTmp)
         if action < 1:
             square = self.map.moveAgent(agent)
-        elif action < 2:
-            square_touched = self.map.touch(agent)
-        else:
+        elif action < 3:
             self.map.turnAgent(agent, Turn(action))
+        elif action < 4:
+            square_touched = self.map.touch(agent)
         #Mise a jour de la position courante
         agent.setCurrentPosition(square)
 
@@ -42,7 +61,15 @@ class Grid:
         if self._name == "env1":
             result = self.result_for_env1(square, squareTmp, square_touched, agent)
         else:
-            result = self.result_generic_env(square, squareTmp, square_touched, agent)
+            result = self.result_generic_env(square, squareTmp, square_touched, agent, action)
+
+        if not self.foundPizza:
+            self.nbActions += 1
+        else:
+            print("-----------------------------------------------------")
+            print("###                  YOU WIN                      ###")
+            print("-----------------------------------------------------")
+            print("Pizza has been found with", self.nbActions, "actions !")
         return result
     
     def disableDisplay(self):
@@ -73,17 +100,24 @@ class Grid:
     '''
     Objectif : indique le bon retour de l'environnement
     '''
-    def result_generic_env(self, square, old_square, square_touched, agent):
+    def result_generic_env(self, square, old_square, square_touched, agent, action):
+        if action == 1 or action == 2:
+            return Feedback.MOVED
         if not square is None:
             #Si l'agent n'a pas bougé alors il a rencontré un mur
             if square.equal(old_square):
-                return 1
-            return 2
+                return Feedback.COLLISION
+            elif square.isPizza():
+                self.foundPizza = True
+                return Feedback.IS_ON_PIZZA
+            return Feedback.MOVED
         elif not square_touched is None:
             if square_touched.isWall():
-                return 1
-            return 2
-        return 2
+                return Feedback.TOUCHED_WALL
+            elif square_touched.isPizza():
+                return Feedback.TOUCHED_PIZZA
+            return Feedback.TOUCHED_NOTHING
+        return None
 
 
     '''

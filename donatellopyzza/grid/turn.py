@@ -1,5 +1,5 @@
 from enum import Enum
 
 class Turn(Enum):
-    LEFT = 2
-    RIGHT = 3
+    LEFT = 1
+    RIGHT = 2

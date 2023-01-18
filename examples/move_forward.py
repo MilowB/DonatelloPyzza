@@ -16,4 +16,7 @@ if __name__ == '__main__':
     
     time.sleep(0.3)
     result = turtle.execute(Action.FORWARD)
-    i += 1
+    result = turtle.execute(Action.FORWARD)
+    result = turtle.execute(Action.TURN_RIGHT)
+    result = turtle.execute(Action.FORWARD)
+    result = turtle.execute(Action.FORWARD)

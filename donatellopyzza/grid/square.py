@@ -30,6 +30,11 @@ class Square:
             return True
         return False
 
+    def isPizza(self):
+        if self.block == "p":
+            return True
+        return False
+
     def addNeighbor(self, neigh):
         self.neighbors.append(neigh)
 

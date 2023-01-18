@@ -6,11 +6,12 @@ from random import randint
 import pkg_resources
 
 class Agent:
-    def __init__(self, name, begin, color):
+    def __init__(self, name, begin, end, color):
         self._name = name
         self.orientation = Orientation.NORTH
         self.num = id(self)
         self.begin = begin
+        self.end = end
         self.color = color
         self.originator = Originator()
         self.caretaker = CareTaker()

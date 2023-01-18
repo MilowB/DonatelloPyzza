@@ -8,6 +8,15 @@ class Map:
         self.numbAgents = 0
         self.askForReset = []
 
+
+    '''
+    Objectif : Calculer le nombre max d'actions à réaliser pour
+               aller de la position initiale à la pizza
+    Param : Int - Nombre d'actions
+    '''
+    def getMaxActions(self):
+        pass
+
     '''
     Objectif : Ajouter une case
     Param : Square - case a ajouter a la map
@@ -43,7 +52,6 @@ class Map:
     1 - droite
     2 - bas
     3 - gauche
-
     Retour : Square - case sur laquelle est l'agent après son déplacement
     '''
     def moveAgent(self, agent):
@@ -89,7 +97,6 @@ class Map:
     1 - droite
     2 - bas
     3 - gauche
-
     Retour : Square - case que l'agent a touché
     '''
     def touch(self, agent):
