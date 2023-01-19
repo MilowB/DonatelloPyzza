@@ -1,6 +1,6 @@
-from .map import *
-from .gui import *
-from .turn import *
+from map import *
+from gui import *
+from turn import *
 import pygame
 
 class Feedback(Enum):
@@ -74,13 +74,12 @@ class Grid:
 
         if not self.foundPizza:
             self.nbActions += 1
-        else:
-            print("-----------------------------------------------------")
-            print("###                  YOU WIN                      ###")
-            print("-----------------------------------------------------")
-            print("Pizza has been found with", self.nbActions, "actions !")
+
         return result
     
+    def pizzaIsFound(self):
+        return self.foundPizza
+
     def disableDisplay(self):
         self.display = False
 

@@ -13,7 +13,7 @@ class GUI:
         self.disp = False
         self.colors = []
         self.shadeColors = []
-        path = pkg_resources.resource_filename(__name__, "data/images/pizza.png")
+        path = pkg_resources.resource_filename(__name__, "../data/images/pizza.png")
         self.pizza = pygame.image.load(path)
         for i in range(height * width):
             r = randint(15, 255)

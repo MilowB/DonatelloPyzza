@@ -44,13 +44,34 @@ class Game:
     def __init__(self, envName, gui):
         self.envName = envName
         self.gui = gui
+        self.env = None
         pass
 
+    '''
+    Goal : start the game by initializing the environment
+    Return : a Turtle instance (a "user-friendly" wrapper class that includes one agent and the environment)
+    '''
     def start(self):
         # Instanciate the envBuilder
         envbuilder = EnvBuilder(name=self.envName, gui=self.gui)
         # creates the grid and the turtle
         agent, env = envbuilder.build_grid()
+        self.env = env
         return Turtle(agent, env)
+
+    '''
+    Goal : start the game by initializing the environment
+    Return : True if the turtle found the pizza, else False
+    '''
+    def isWon(self):
+        res = self.env.pizzaIsFound()
+        if res:
+            print("-----------------------------------------------------")
+            print("###                  YOU WIN                      ###")
+            print("-----------------------------------------------------")
+            print("Pizza has been found with", self.nbActions, "actions !")
+        return res
+        
+
 
 

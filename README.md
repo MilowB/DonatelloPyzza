@@ -1,4 +1,4 @@
-# DonatelloPyzza
+## DonatelloPyzza
 
 A simple environment to help beginners learn Python in high school and at the university.
 A turtle can move through a grid and touch each cell until it finds the pizza.
@@ -9,7 +9,7 @@ This game can be used at several levels:
 
 You can manually create the grid world in which the turtle moves. Soon you will be able to generate new environements automatically through the game API.
 
-# Documentation
+## Documentation
 
 `Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
 
@@ -30,6 +30,7 @@ Depending on your action, the game can provide you one of the following feedback
 
 
 Now you know how to play, let's create the game and its environment:
+
 First, import the right modules to run the game:
 
 ```python
@@ -63,5 +64,15 @@ You can use the feedback from the `execute()` method to see what happened after 
 
 For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository for this project.
 
-
 Have fun!
+
+
+## What's new
+
+- 2023-01-17 (v1.2)
+    Initial release
+
+
+## Roadmap
+
+    - add a gridworld generator
