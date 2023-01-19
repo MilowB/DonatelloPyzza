@@ -11,8 +11,26 @@ You can manually create the grid world in which the turtle moves. Soon you will 
 
 # Documentation
 
-First, import the right modules to run the game:
+`Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
 
+    Action.MOVE_FORWARD -> make your turtle go one step forward
+    Action.TURN_RIGHT -> your turtle will turn on its right
+    Action.TURN_LEFT -> on its left
+    Action.TOUCH -> the turtle will touch the cell in front of it to know its type
+
+
+Depending on your action, the game can provide you one of the following feedback:
+
+    Feedback.COLLISION -> you just tried to walk in a wall !
+    Feedback.MOVED -> you successfully moved
+    Feedback.MOVED_ON_PIZZA -> your turtle is on the pizza (congratulation!)
+    Feedback.TOUCHED_WALL -> you just touched a wall
+    Feedback.TOUCHED_NOTHING -> the touched cell is empty (no wall, no pizza, you can walk on it)
+    Feedback.TOUCHED_PIZZA -> the turtle touched the pizza
+
+
+Now you know how to play, let's create the game and its environment:
+First, import the right modules to run the game:
 
 ```python
 from donatellopyzza import Game
@@ -20,25 +38,7 @@ from donatellopyzza import Action
 from donatellopyzza import Feedback
 ```
 
-`Game` is a class that you will use to create a game instance. `Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
-
-    FORWARD -> make your turtle go one step forward
-    TURN_RIGHT -> your turtle will turn on its right
-    TURN_LEFT -> on its left
-    TOUCH -> the turtle will touch the cell in front of it to know its type
-
-
-Depending on your action, the game can provide you one of the following feedback:
-
-    COLLISION -> you just tried to walk in a wall !
-    MOVED -> you successfully moved
-    IS_ON_PIZZA -> your turtle is on the pizza (congratulation!)
-    TOUCHED_WALL -> you just touched a wall
-    TOUCHED_NOTHING -> the touched cell is empty (no wall, no pizza, you can walk on it)
-    TOUCHED_PIZZA -> the turtle touched the pizza
-
-
-Now you know how to play, let's create the game and its environment:
+`Game` is a class that you will use to create a game instance
 
 ```python
 # specify the name of the environment
@@ -50,7 +50,6 @@ game = Game(__ENVIRONMENT__, __GUI__)
 # returns a turtle that execute actions on its environment
 turtle = game.start()
 ```
-
 
 Once the game has started, you get a turtle instance which you can move around the board.
 To do this, the following instruction can be used:
