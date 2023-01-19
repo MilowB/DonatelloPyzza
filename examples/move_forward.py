@@ -21,5 +21,5 @@ if __name__ == '__main__':
     
     # execute the path step by step
     for a in actions:
-        time.sleep(0.5)
         result = turtle.execute(a)
+        time.sleep(20)

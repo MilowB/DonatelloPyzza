@@ -9,7 +9,17 @@ This game can be used at several levels:
 
 You can manually create the grid world in which the turtle moves. Soon you will be able to generate new environements automatically through the game API.
 
-## Documentation
+![View of the game](views/example.gif)
+
+
+## Installation
+
+`pip install -r requirements.txt`
+
+`pip install donatellopyzza`
+
+
+## Getting started
 
 `Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
 
