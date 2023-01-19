@@ -1,9 +1,13 @@
 # DonatelloPyzza
 
-A simple environment to help beginners learn Python in high school. 
+A simple environment to help beginners learn Python in high school and at the university.
 A turtle can move through a grid and touch each cell until it finds the pizza.
+This game can be used at several levels:
+- for young beginners: they can hard-code a path to help the turtle find its pizza
+- for beginners: they can develop intuitive heuristics to find the pizza
+- for intermediate or advanced developers: they can develop a complex path finding method or AI-based solutions.
 
-You can manually create the grid world in which the turtle moves or generate it automatically (soon).
+You can manually create the grid world in which the turtle moves. Soon you will be able to generate new environements automatically through the game API.
 
 # Documentation
 
