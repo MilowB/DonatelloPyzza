@@ -1,5 +1,5 @@
-from turn import *
-from orientation import *
+from .turn import *
+from .orientation import *
 
 class Map:
     def __init__(self):

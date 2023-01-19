@@ -1,5 +1,5 @@
-from memento import *
-from map import *
+from .memento import *
+from .map import *
 
 class Originator:
     def __init__(self):

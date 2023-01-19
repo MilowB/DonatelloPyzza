@@ -1,6 +1,6 @@
-from map import *
-from gui import *
-from turn import *
+from .map import *
+from .gui import *
+from .turn import *
 import pygame
 
 class Feedback(Enum):
@@ -19,6 +19,9 @@ class Feedback(Enum):
 
     def __int__(self):
         return self.value
+
+    def __eq__(self, fb):
+        return self.value == fb.value
 
 class Grid:
     def __init__(self, g, m, a, d, name):

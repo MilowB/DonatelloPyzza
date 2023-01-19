@@ -19,3 +19,4 @@ if __name__ == '__main__':
     for a in actions:
         time.sleep(0.5)
         result = turtle.execute(a)
+        input()

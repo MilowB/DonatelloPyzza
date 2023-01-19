@@ -1,7 +1,7 @@
-from gui import *
-from square import *
-from agent import *
-from map import *
+from .gui import *
+from .square import *
+from .agent import *
+from .map import *
 import sys
 
 class Parser:

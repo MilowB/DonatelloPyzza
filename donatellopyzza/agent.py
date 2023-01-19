@@ -1,7 +1,7 @@
 import os, sys, pygame
-from originator import *
-from careTaker import *
-from orientation import *
+from .originator import *
+from .careTaker import *
+from .orientation import *
 from random import randint
 import pkg_resources
 
@@ -16,7 +16,7 @@ class Agent:
         self.originator = Originator()
         self.caretaker = CareTaker()
         self.position = None
-        path = pkg_resources.resource_filename(__name__, "../data/images/turtle_small.png")
+        path = pkg_resources.resource_filename(__name__, "data/images/turtle_small.png")
         self.turtle = pygame.image.load(path)
         self.angle = 0
 

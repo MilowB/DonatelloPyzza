@@ -1,4 +1,4 @@
-from map import *
+from .map import *
 
 class Memento:
     def __init__(self, state):
