@@ -9,7 +9,7 @@ import random
 from enum import Enum
 
 class Action(Enum):
-    FORWARD = 0, "Forward"
+    MOVE_FORWARD = 0, "Move_forward"
     TURN_RIGHT = 1, "Turn_right"
     TURN_LEFT = 2, "Turn_left"
     TOUCH = 3, "Touch"
@@ -26,7 +26,7 @@ class Action(Enum):
 class Feedback(Enum):
     COLLISION = 0, "Collision"
     MOVED = 1, "Moved"
-    IS_ON_PIZZA = 2, "Is_on_pizza"
+    MOVED_ON_PIZZA = 2, "Moved_on_pizza"
     TOUCHED_WALL = 3, "Touched_wall"
     TOUCHED_NOTHING = 4, "Touched_nothing"
     TOUCHED_PIZZA = 5, "Touched_pizza"

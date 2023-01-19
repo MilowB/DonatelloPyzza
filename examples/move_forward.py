@@ -15,8 +15,11 @@ if __name__ == '__main__':
     # returns a turtle that execute actions on its environment
     turtle = game.start()
     
-    actions = [Action.FORWARD, Action.FORWARD, Action.TURN_RIGHT, Action.FORWARD, Action.FORWARD, Action.FORWARD]
+    # the hard-coded path to find the pizza in the maze environment
+    actions = [Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.TURN_RIGHT,
+        Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.MOVE_FORWARD]
+    
+    # execute the path step by step
     for a in actions:
         time.sleep(0.5)
         result = turtle.execute(a)
-        input()

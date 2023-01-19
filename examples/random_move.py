@@ -19,6 +19,6 @@ if __name__ == '__main__':
     while i < 1500:
         time.sleep(0.3)
         r = random.randint(0, 3)
-        actions = [Action.FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
+        actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
         result = turtle.execute(actions[r])
         i += 1
