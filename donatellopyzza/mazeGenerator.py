@@ -1,3 +1,8 @@
+'''
+Author: Alexandru Valeanu
+Adapted by: Mickael Bettinelli - 2023
+'''
+
 from numpy.random import random_integers as rand
 import os, sys, inspect
 

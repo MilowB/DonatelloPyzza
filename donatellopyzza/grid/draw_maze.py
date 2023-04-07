@@ -1,3 +1,8 @@
+'''
+Author: Alexandru Valeanu
+Adapted by: Mickael Bettinelli - 2023
+'''
+
 from matplotlib import pyplot
 from matplotlib import colors
 import pkg_resources
