@@ -8,7 +8,12 @@ import time
 
 
 if __name__ == '__main__':
-    # the name of the environment
+    # generate and save a new random maze
+    maze = Maze.create_maze(10, 10)
+    filepath = "test"
+    maze.save(maze, filename=filepath)
+
+    # load the new maze
     __ENVIRONMENT__ = "maze"
     # display the interface (or not)
     __GUI__ = True
@@ -17,10 +22,12 @@ if __name__ == '__main__':
     # returns a turtle that execute actions on its environment
     turtle = game.start()
     
+    # the hard-coded path to find the pizza in the maze environment
+    actions = [Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.TURN_RIGHT,
+        Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.MOVE_FORWARD]
+    
     while not game.isWon():
         # execute the path step by step
         for a in actions:
-            time.sleep(0.3)
-            r = random.randint(0, 3)
-            actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
-            result = turtle.execute(actions[r])
+            time.sleep(0.5)
+            result = turtle.execute(a)

@@ -1,15 +1,14 @@
 from .game import *
 from .mazeGenerator import Maze
-from draw_maze import save_maze
 import random
 import time
 
 
 if __name__ == '__main__':
-    # Generation of the maze
+    # generation of the maze
     maze = Maze.create_maze(10, 10)
     filepath = "test33"
-    save_maze(maze, filename=filepath)
+    maze.save(maze, filename=filepath)
 
     # the name of the environment
     __ENVIRONMENT__ = "test33"
