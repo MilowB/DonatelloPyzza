@@ -8,7 +8,6 @@ cmd_subfolder_grid = os.path.realpath(os.path.abspath(os.path.join(os.path.split
 if cmd_subfolder_grid not in sys.path:
     sys.path.insert(0, cmd_subfolder_grid)
 
-from test import Test
 from parser import Parser
 from grid import Grid
 
@@ -19,7 +18,6 @@ class EnvBuilder:
         self.gui = gui
 
     def get_data_path(self, path):
-        
         return pkg_resources.resource_filename(__name__, path + self.name)
 
     def build_grid(self):

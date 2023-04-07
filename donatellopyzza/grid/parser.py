@@ -6,7 +6,7 @@ import sys
 
 class Parser:
     def __init__(self, name):
-        self._name = name
+        self._name = name + ".txt"
 
     def parse(self):
         m = Map()

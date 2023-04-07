@@ -1,11 +1,13 @@
 from donatellopyzza import Game
 from donatellopyzza import Action
 from donatellopyzza import Feedback
+import donatellopyzza
 import random
 import time
 
 
 if __name__ == '__main__':
+
     # the name of the environment
     __ENVIRONMENT__ = "maze"
     # display the interface (or not)
@@ -19,7 +21,8 @@ if __name__ == '__main__':
     actions = [Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.TURN_RIGHT,
         Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.MOVE_FORWARD]
     
-    # execute the path step by step
-    for a in actions:
-        result = turtle.execute(a)
-        time.sleep(20)
+    while not game.isWon():
+        # execute the path step by step
+        for a in actions:
+            time.sleep(0.5)
+            result = turtle.execute(a)

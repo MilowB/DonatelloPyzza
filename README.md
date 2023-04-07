@@ -9,7 +9,7 @@ This game can be used at several levels:
 
 You can manually create the grid world in which the turtle moves. Soon you will be able to generate new environements automatically through the game API.
 
-![View of the game](views/example.gif)
+![View of the game (please go to the homepage of the project to watch this gif)](https://github.com/MilowB/DonatelloPyzza/blob/master/views/example.gif)
 
 
 ## Installation
@@ -72,17 +72,19 @@ print(feedback)
 
 You can use the feedback from the `execute()` method to see what happened after your action.
 
-For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository for this project.
+For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository of this project.
 
 Have fun!
 
 
 ## What's new
 
+- 2023-04-07
+    Integration of the maze generator from Alexandru Văleanu (https://github.com/AlexandruValeanu/Mazify)
 - 2023-01-17 (v1.2)
     Initial release
 
 
 ## Roadmap
 
-    - add a gridworld generator
+- add a gridworld generator

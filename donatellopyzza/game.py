@@ -1,6 +1,5 @@
 from .turtleAgent import Turtle
 from .envBuilder import *
-from .generator import *
 # @DEBUG from .turtleAgent import Turtle
 # @DEBUG from .envBuilder import *
 # @DEBUG from .generator import *
@@ -23,6 +22,7 @@ class Action(Enum):
     def __int__(self):
         return self.value
 
+# TODO: remove duplicate in grid.py
 class Feedback(Enum):
     COLLISION = 0, "Collision"
     MOVED = 1, "Moved"
@@ -39,6 +39,9 @@ class Feedback(Enum):
 
     def __int__(self):
         return self.value
+
+    def __eq__(self, fb):
+        return self.value == fb.value
 
 class Game:
     def __init__(self, envName, gui):
@@ -69,7 +72,7 @@ class Game:
             print("-----------------------------------------------------")
             print("###                  YOU WIN                      ###")
             print("-----------------------------------------------------")
-            print("Pizza has been found with", self.nbActions, "actions !")
+            print("Pizza has been found with", self.env.nbActions, "actions !")
         return res
         
 

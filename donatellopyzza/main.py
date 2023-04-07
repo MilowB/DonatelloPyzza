@@ -1,13 +1,21 @@
-from game import *
+from .game import *
+from .mazeGenerator import Maze
+from draw_maze import save_maze
 import random
 import time
 
 
-if __name__ == '__main__':    
+if __name__ == '__main__':
+    # Generation of the maze
+    maze = Maze.create_maze(10, 10)
+    filepath = "test33"
+    save_maze(maze, filename=filepath)
+
     # the name of the environment
-    __ENVIRONMENT__ = envname
+    __ENVIRONMENT__ = "test33"
     # display the interface (or not)
     __GUI__ = True
+
 
     game = Game(__ENVIRONMENT__, __GUI__)
     # returns a turtle that execute actions on its environment
@@ -18,4 +26,3 @@ if __name__ == '__main__':
         r = random.randint(0, 3)
         actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
         result = turtle.execute(actions[r])
-        i += 1
