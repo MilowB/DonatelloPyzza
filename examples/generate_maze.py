@@ -14,7 +14,7 @@ if __name__ == '__main__':
     maze.save(maze, filename=filepath)
 
     # load the new maze
-    __ENVIRONMENT__ = "maze"
+    __ENVIRONMENT__ = "test"
     # display the interface (or not)
     __GUI__ = True
 
