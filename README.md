@@ -21,35 +21,17 @@ You can manually create the grid world in which the turtle moves. Soon you will 
 
 ## Getting started
 
-`Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
-
-    Action.MOVE_FORWARD -> make your turtle go one step forward
-    Action.TURN_RIGHT -> your turtle will turn on its right
-    Action.TURN_LEFT -> on its left
-    Action.TOUCH -> the turtle will touch the cell in front of it to know its type
-
-
-Depending on your action, the game can provide you one of the following feedback:
-
-    Feedback.COLLISION -> you just tried to walk in a wall !
-    Feedback.MOVED -> you successfully moved
-    Feedback.MOVED_ON_PIZZA -> your turtle is on the pizza (congratulation!)
-    Feedback.TOUCHED_WALL -> you just touched a wall
-    Feedback.TOUCHED_NOTHING -> the touched cell is empty (no wall, no pizza, you can walk on it)
-    Feedback.TOUCHED_PIZZA -> the turtle touched the pizza
-
-
-Now you know how to play, let's create the game and its environment:
-
 First, import the right modules to run the game:
 
 ```python
 from donatellopyzza import Game
 from donatellopyzza import Action
 from donatellopyzza import Feedback
+from donatellopyzza import Maze
 ```
 
 `Game` is a class that you will use to create a game instance
+Let's create the game and its environment:
 
 ```python
 # specify the name of the environment
@@ -72,6 +54,37 @@ print(feedback)
 
 You can use the feedback from the `execute()` method to see what happened after your action.
 
+## Knowing actions and feedbacks
+
+`Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
+
+    Action.MOVE_FORWARD -> make your turtle go one step forward
+    Action.TURN_RIGHT -> your turtle will turn on its right
+    Action.TURN_LEFT -> on its left
+    Action.TOUCH -> the turtle will touch the cell in front of it to know its type
+
+
+Depending on your action, the game can provide you one of the following feedback:
+
+    Feedback.COLLISION -> you just tried to walk in a wall !
+    Feedback.MOVED -> you successfully moved
+    Feedback.MOVED_ON_PIZZA -> your turtle is on the pizza (congratulation!)
+    Feedback.TOUCHED_WALL -> you just touched a wall
+    Feedback.TOUCHED_NOTHING -> the touched cell is empty (no wall, no pizza, you can walk on it)
+    Feedback.TOUCHED_PIZZA -> the turtle touched the pizza
+
+
+## Generating and save you own mazes
+
+`Maze` is a class used to generate and save new mazes. You can save retrieve saved maze by their names as indicated in example files. A new maze is generated (and save) as follow:
+
+```python
+maze = Maze.create_maze(10, 10)
+fn = "test"
+maze.save(maze, filename=fn)
+```
+
+
 For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository of this project.
 
 Have fun!
@@ -87,5 +100,6 @@ Have fun!
 
 ## Roadmap
 
+- remove the green band on the right of the screen when using the GUI
 - make some easy tutorials to help beginners use this package 
 - ~~add a gridworld generator~~
