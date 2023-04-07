@@ -117,7 +117,7 @@ class Grid:
                 return Feedback.COLLISION
             elif square.isPizza():
                 self.foundPizza = True
-                return Feedback.IS_ON_PIZZA
+                return Feedback.MOVED_ON_PIZZA
             return Feedback.MOVED
         elif not square_touched is None:
             if square_touched.isWall():

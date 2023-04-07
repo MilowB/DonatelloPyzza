@@ -1,8 +1,6 @@
 from donatellopyzza import Game
 from donatellopyzza import Action
 from donatellopyzza import Feedback
-from donatellopyzza import Maze
-import donatellopyzza
 import random
 import time
 
@@ -18,9 +16,9 @@ if __name__ == '__main__':
     turtle = game.start()
     
     while not game.isWon():
-        actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
+        actions = [Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.TURN_RIGHT,
+            Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.MOVE_FORWARD]
         # execute the path step by step
         for a in actions:
             time.sleep(0.3)
-            r = random.randint(0, 3)
-            result = turtle.execute(actions[r])
+            result = turtle.execute(a)

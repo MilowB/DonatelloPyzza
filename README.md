@@ -87,4 +87,5 @@ Have fun!
 
 ## Roadmap
 
+- make some easy tutorials to help beginners use this package 
 - ~~add a gridworld generator~~
