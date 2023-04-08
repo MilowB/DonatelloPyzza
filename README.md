@@ -1,13 +1,13 @@
 ## DonatelloPyzza
 
-A simple environment to help beginners learn Python in high school and at the university.
-A turtle can move through a grid and touch each cell until it finds the pizza.
+DonatelloPyzza is a simple and educational game to help beginners learn Python in high school and university.
+
+A turtle can move through a grid and touch each cells until it finds the pizza.
 This game can be used at several levels:
-- for young beginners: they can hard-code a path to help the turtle find its pizza
+- for young beginners: they can hard-code a path to help the turtle find its pizza and small mazes.
 - for beginners: they can develop intuitive heuristics to find the pizza
 - for intermediate or advanced developers: they can develop a complex path finding method or AI-based solutions.
 
-You can manually create the grid world in which the turtle moves. Soon you will be able to generate new environements automatically through the game API.
 
 ![View of the game (please go to the homepage of the project to watch this gif)](https://github.com/MilowB/DonatelloPyzza/blob/master/views/example.gif)
 
@@ -30,11 +30,12 @@ from donatellopyzza import Feedback
 from donatellopyzza import Maze
 ```
 
-`Game` is a class that you will use to create a game instance
+`Game` is a class that you will use to create a game instance.
+
 Let's create the game and its environment:
 
 ```python
-# specify the name of the environment
+# specify the name of the maze
 __ENVIRONMENT__ = "maze"
 # display the interface (or not)
 __GUI__ = True
@@ -74,9 +75,9 @@ Depending on your action, the game can provide you one of the following feedback
     Feedback.TOUCHED_PIZZA -> the turtle touched the pizza
 
 
-## Generating and save you own mazes
+## Generating and save your own mazes
 
-`Maze` is a class used to generate and save new mazes. You can save retrieve saved maze by their names as indicated in example files. A new maze is generated (and save) as follow:
+`Maze` is a class used to generate and save new mazes. You can retrieve saved maze by their names as indicated in example files. A new maze is generated (and save) as follow:
 
 ```python
 maze = Maze.create_maze(10, 10)
@@ -100,6 +101,9 @@ Have fun!
 
 ## Roadmap
 
-- remove the green band on the right of the screen when using the GUI
-- make some easy tutorials to help beginners use this package 
+- make possible to the user to select the difficulty its maze when generating it
+- GUI improvements
+- make tutorials to help beginners use this package
+- make a more formal documentation
+- promote this game through a website
 - ~~add a gridworld generator~~
