@@ -55,7 +55,7 @@ print(feedback)
 
 You can use the feedback from the `execute()` method to see what happened after your action.
 
-## Knowing actions and feedbacks
+## Learning the rules:  actions and feedbacks
 
 `Action` and `Feedback` define the different actions and feedbacks types. You can use the following actions in your code:
 
