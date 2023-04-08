@@ -74,6 +74,9 @@ class Game:
             print("-----------------------------------------------------")
             print("Pizza has been found with", self.env.nbActions, "actions !")
         return res
+
+    def getScore(self):
+        return self.env.nbActions
         
 
 

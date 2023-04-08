@@ -8,7 +8,8 @@ import time
 
 if __name__ == '__main__':
     # generate and save a new random maze
-    maze = Maze.create_maze(10, 10)
+    maze = Maze(10, 10)
+    maze = Maze.create_maze()
     fn = "test"
     maze.save(maze, filename=fn)
 

@@ -1,17 +1,18 @@
 from .game import *
-from .mazeGenerator import Maze
+from .mazeGenerator import MazeGenerator
 import random
 import time
 
 
 if __name__ == '__main__':
     # generation of the maze
-    maze = Maze.create_maze(10, 10)
-    filepath = "test33"
+    generator = MazeGenerator()
+    maze = generator.create_maze(10, 10)
+    filepath = "test"
     maze.save(maze, filename=filepath)
 
     # the name of the environment
-    __ENVIRONMENT__ = "test33"
+    __ENVIRONMENT__ = "test"
     # display the interface (or not)
     __GUI__ = True
 

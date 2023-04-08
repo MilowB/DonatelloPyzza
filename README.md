@@ -27,7 +27,6 @@ First, import the right modules to run the game:
 from donatellopyzza import Game
 from donatellopyzza import Action
 from donatellopyzza import Feedback
-from donatellopyzza import Maze
 ```
 
 `Game` is a class that you will use to create a game instance.
@@ -80,7 +79,10 @@ Depending on your action, the game can provide you one of the following feedback
 `Maze` is a class used to generate and save new mazes. You can retrieve saved maze by their names as indicated in example files. A new maze is generated (and save) as follow:
 
 ```python
-maze = Maze.create_maze(10, 10)
+from donatellopyzza import MazeGenerator
+
+generator = MazeGenerator()
+maze = generator.create_maze(10, 10)
 fn = "test"
 maze.save(maze, filename=fn)
 ```
@@ -101,9 +103,11 @@ Have fun!
 
 ## Roadmap
 
+- make tests and automatic deployment of this package
+- add a test infrastructure to validate users' algorithm on several mazes
 - make possible to the user to select the difficulty its maze when generating it
-- GUI improvements
 - make tutorials to help beginners use this package
 - make a more formal documentation
 - promote this game through a website
+- ~~GUI improvements~~
 - ~~add a gridworld generator~~

@@ -21,7 +21,6 @@ from constants import *
 class Maze:
     def __init__(self, rows, columns):
         assert rows >= 1 and columns >= 1
-
         self.nrows = rows
         self.ncolumns = columns
         self.board = np.zeros((rows, columns), dtype=WALL_TYPE)
@@ -65,13 +64,65 @@ class Maze:
         f.write(self.ascii_representation(self))
         f.close()
 
-    @staticmethod
-    def create_maze(rows, columns, seed=None, complexity=.5, density=.2):
+    def get_data_path(self, path, name):
+        return pkg_resources.resource_filename(__name__, path + name)
+
+    def save(self, maze, filename=None):
+        pyplot.figure(figsize=(10, 10))
+
+        path = self.get_data_path("data/environments/", filename)
+        self.color_path(maze, [])
+
+        # make a color map of fixed colors
+        cmap = colors.ListedColormap(['black', 'white', 'red', 'blue'])
+        bounds = [0, 1, 2, 3, 4]
+        norm = colors.BoundaryNorm(bounds, cmap.N)
+
+        # tell imshow about color map so that only set colors are used
+        pyplot.imshow(maze.board, interpolation='nearest',
+                    cmap=cmap, norm=norm)
+
+        pyplot.xticks([]), pyplot.yticks([])
+
+        if path is not None:
+            pyplot.savefig(path + ".png")
+            maze.write_to_file(path + '.txt')
+
+
+    def ascii_representation(self, maze):
+        rep = ''
+        for i in range(maze.nrows):
+            for j in range(maze.ncolumns):
+                if maze.is_wall(i, j):
+                    rep += 'B'
+                elif maze.is_turtle(i, j):
+                    rep += "a"
+                elif maze.is_pizza(i, j):
+                    rep += "p"
+                else:
+                    rep += ' '
+            if i < maze.nrows - 1:
+                rep += '\n'
+        return rep
+
+
+    def color_path(self, maze, path):
+        for (x, y) in path:
+            maze.board[x][y] = constants.RED
+
+        if len(path):
+            maze.board[path[0][0], path[0][1]] = constants.BLUE
+            maze.board[path[-1][0], path[-1][1]] = constants.BLUE
+
+
+
+class MazeGenerator():
+    def create_maze(self, nrows, ncolumns, seed=None, complexity=.5, density=.2):
         startPosition = 1
         pizzaPosition = 1
 
-        rows = (rows // 2) * 2 + 1
-        columns = (columns // 2) * 2 + 1
+        rows = (nrows // 2) * 2 + 1
+        columns = (ncolumns // 2) * 2 + 1
 
         if seed is not None:
             np.random.seed(seed)
@@ -132,53 +183,3 @@ class Maze:
         maze.set_pizza_position(x, y)
 
         return maze
-
-    def get_data_path(self, path, name):
-        return pkg_resources.resource_filename(__name__, path + name)
-
-    def save(self, maze, filename=None):
-        pyplot.figure(figsize=(10, 10))
-
-        path = self.get_data_path("data/environments/", filename)
-        self.color_path(maze, [])
-
-        # make a color map of fixed colors
-        cmap = colors.ListedColormap(['black', 'white', 'red', 'blue'])
-        bounds = [0, 1, 2, 3, 4]
-        norm = colors.BoundaryNorm(bounds, cmap.N)
-
-        # tell imshow about color map so that only set colors are used
-        pyplot.imshow(maze.board, interpolation='nearest',
-                    cmap=cmap, norm=norm)
-
-        pyplot.xticks([]), pyplot.yticks([])
-
-        if path is not None:
-            pyplot.savefig(path + ".png")
-            maze.write_to_file(path + '.txt')
-
-
-    def ascii_representation(self, maze):
-        rep = ''
-        for i in range(maze.nrows):
-            for j in range(maze.ncolumns):
-                if maze.is_wall(i, j):
-                    rep += 'B'
-                elif maze.is_turtle(i, j):
-                    rep += "a"
-                elif maze.is_pizza(i, j):
-                    rep += "p"
-                else:
-                    rep += ' '
-            if i < maze.nrows - 1:
-                rep += '\n'
-        return rep
-
-
-    def color_path(self, maze, path):
-        for (x, y) in path:
-            maze.board[x][y] = constants.RED
-
-        if len(path):
-            maze.board[path[0][0], path[0][1]] = constants.BLUE
-            maze.board[path[-1][0], path[-1][1]] = constants.BLUE
