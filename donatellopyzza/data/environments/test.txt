@@ -1,0 +1,9 @@
+BBBBBBBBB
+B       B
+BBB BBB B
+B B B B B
+B B B p B
+B B   B B
+B aBBBB B
+B       B
+BBBBBBBBB

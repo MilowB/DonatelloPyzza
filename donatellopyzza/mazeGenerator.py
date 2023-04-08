@@ -68,7 +68,7 @@ class Maze:
         return pkg_resources.resource_filename(__name__, path + name)
 
     def save(self, maze, filename=None):
-        pyplot.figure(figsize=(10, 10))
+        #pyplot.figure(figsize=(10, 10))
 
         path = self.get_data_path("data/environments/", filename)
         self.color_path(maze, [])
@@ -79,13 +79,13 @@ class Maze:
         norm = colors.BoundaryNorm(bounds, cmap.N)
 
         # tell imshow about color map so that only set colors are used
-        pyplot.imshow(maze.board, interpolation='nearest',
-                    cmap=cmap, norm=norm)
+        #pyplot.imshow(maze.board, interpolation='nearest',
+        #            cmap=cmap, norm=norm)
 
-        pyplot.xticks([]), pyplot.yticks([])
+        #pyplot.xticks([]), pyplot.yticks([])
 
         if path is not None:
-            pyplot.savefig(path + ".png")
+            #pyplot.savefig(path + ".png")
             maze.write_to_file(path + '.txt')
 
 

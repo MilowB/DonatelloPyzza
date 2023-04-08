@@ -66,9 +66,9 @@ class Game:
     Goal : start the game by initializing the environment
     Return : True if the turtle found the pizza, else False
     '''
-    def isWon(self):
+    def isWon(self, prnt=True):
         res = self.env.pizzaIsFound()
-        if res:
+        if res and prnt:
             print("-----------------------------------------------------")
             print("###                  YOU WIN                      ###")
             print("-----------------------------------------------------")

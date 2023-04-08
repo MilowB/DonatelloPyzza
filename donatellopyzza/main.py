@@ -1,10 +1,16 @@
 from .game import *
 from .mazeGenerator import MazeGenerator
+from .assessor import Assessor
 import random
-import time
 
+def solution(feedback):
+    r = random.randint(0, 3)
+    actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
+    result = actions[r]
+    return result
 
 if __name__ == '__main__':
+    '''
     # generation of the maze
     generator = MazeGenerator()
     maze = generator.create_maze(10, 10)
@@ -26,3 +32,8 @@ if __name__ == '__main__':
         r = random.randint(0, 3)
         actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
         result = turtle.execute(actions[r])
+    '''
+
+    assessor = Assessor(10000, 10, 10, 20, 20, 1000)
+    assessor.setSolution(solution)
+    assessor.run()
