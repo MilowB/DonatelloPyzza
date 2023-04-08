@@ -170,7 +170,8 @@ class Maze:
                     rep += "p"
                 else:
                     rep += ' '
-            rep += '\n'
+            if i < maze.nrows - 1:
+                rep += '\n'
         return rep
 
 
