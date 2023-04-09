@@ -96,6 +96,8 @@ Have fun!
 ## What's new
 
 
+- 2023-04-09 (v1.6)
+    Integration of an algorithm assessment class. Allows to evaluate automatically a solution on several mazes
 - 2023-04-07 (v1.5)
     Integration of a maze generator from Alexandru Văleanu (https://github.com/AlexandruValeanu/Mazify)
 - 2023-01-17 (v1.2)
@@ -104,6 +106,7 @@ Have fun!
 
 ## Roadmap
 
+- adapt the GUI to resize it to the screen size
 - make several tests for this package
 - make tutorials to help beginners use this package
 - make a more formal documentation
