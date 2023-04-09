@@ -110,7 +110,7 @@ Have fun!
 - make tutorials to help beginners use this package
 - make a more formal documentation
 - promote this game through a website
-- ~~adapt the GUI to resize it to the maze size~~
+- ~~adapt the GUI to resize it depending on the number of cells~~
 - ~~add a test infrastructure to validate users' algorithm on several mazes~~
 - ~~make possible to the user to select the difficulty its maze when generating it~~
 - ~~debug the GUI~~
