@@ -63,7 +63,7 @@ class Assessor:
         duration = endTime - startTime
         print("Total duration: ", round(duration, 2), " seconds")
         print("------------------------")
-        print("| Success rate: ", round(success / (success + failure), 2), "% |")
+        print("| Success rate: ", round(success / (success + failure), 2) * 100, "% |")
         print("------------------------")
         print("Number of actions per maze: ", round(totalActions/self.nruns, 2))
         print("Time per maze: ", round(duration/self.nruns, 2), "seconds")

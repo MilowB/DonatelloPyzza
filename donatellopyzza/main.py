@@ -15,14 +15,17 @@ class MySolution:
         # process what you need to here
         nextAction = None
         if feedback == Feedback.TOUCHED_PIZZA:
-            nextAction = self.lastAction
+            nextAction = Action.MOVE_FORWARD
         else:
-            if self.lastAction == Action.TOUCH:
-                if feedback == Feedback.TOUCHED_WALL:
-                    nextAction = Action.TURN_RIGHT
-                elif feedback == Feedback.TOUCHED_NOTHING:
-                    nextAction = Action.MOVE_FORWARD
-            else:
+            if self.lastAction == Action.MOVE_FORWARD:
+                nextAction = Action.TURN_RIGHT
+            elif self.lastAction == Action.TURN_RIGHT:
+                nextAction = Action.TOUCH
+            elif self.lastAction == Action.TOUCH and feedback == Feedback.TOUCHED_NOTHING:
+                nextAction = Action.MOVE_FORWARD
+            elif self.lastAction == Action.TOUCH and feedback == Feedback.TOUCHED_WALL:
+                nextAction = Action.TURN_LEFT
+            elif self.lastAction == Action.TURN_LEFT:
                 nextAction = Action.TOUCH
         self.lastAction = nextAction
         # return your action for this round
