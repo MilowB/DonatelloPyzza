@@ -11,7 +11,7 @@ from .game import Game
 
 
 class Assessor:
-    def __init__(self, nruns: int, minrows: int, mincolumns: int, maxrows: int, maxcolumns: int, overflow=-1):
+    def __init__(self, nruns: int, minrows: int, mincolumns: int, maxrows: int, maxcolumns: int, complexity=0, overflow=-1):
         assert nruns > 0 and minrows > 7 and mincolumns > 7, "Please, specify a valid number of runs, rows and columns"
         if overflow == -1:
             overflow = maxrows * maxcolumns * 2
@@ -22,6 +22,7 @@ class Assessor:
         self.mincolumns = mincolumns
         self.maxrows = maxrows
         self.maxcolumns = maxcolumns
+        self.complexity = complexity
         self.generator = MazeGenerator()
 
     def setSolution(self, clss):
@@ -34,12 +35,13 @@ class Assessor:
         success = 0
         failure = 0
         startTime = time.time()
+        totalActions = 0
         for i in tqdm(range(self.nruns)):
             r, c = randint(self.minrows, self.maxrows), randint(self.mincolumns, self.maxcolumns)
             deviation = (abs(c-(r+c)/2)/2)
             a = int(min(r, c) + deviation)
             b = int(max(r, c) - deviation)
-            maze = self.generator.create_maze(a, b)
+            maze = self.generator.create_maze(a, b, self.complexity)
             filepath = "assessment_maze"
             maze.save(maze, filename=filepath)       
             game = Game(filepath, False)
@@ -52,11 +54,17 @@ class Assessor:
                 action = solutionInstance.nextAction(feedback)
                 feedback = turtle.execute(action)
                 cnt += 1
+            totalActions += cnt
             if self.overflow > cnt:
                 success += 1
             else:
                 failure += 1
         endTime = time.time()
         duration = endTime - startTime
-        print("Total duration: ", duration, " seconds")
-        print("Failed: ", failure, "/", success + failure)
+        print("Total duration: ", round(duration, 2), " seconds")
+        print("------------------------")
+        print("| Success rate: ", round(success / (success + failure), 2), "% |")
+        print("------------------------")
+        print("Number of actions per maze: ", round(totalActions/self.nruns, 2))
+        print("Time per maze: ", round(duration/self.nruns, 2), "seconds")
+        print("------------------------")

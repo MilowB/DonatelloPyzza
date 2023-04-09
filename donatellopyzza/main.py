@@ -3,11 +3,16 @@ from .mazeGenerator import MazeGenerator
 from .assessor import Assessor
 import random
 
-class Solution:
+class MySolution:
+    # do not pass any parameter to this constructor
     def __init__(self):
+        # save all the variables you need here
         self.lastAction = Action.MOVE_FORWARD
 
+    # your solution needs to show this prototype to be used by the assessor
+    # always call it "nextAction" and pass a single parameter which will be the feedback of your last action
     def nextAction(self, feedback):
+        # process what you need to here
         nextAction = None
         if feedback == Feedback.TOUCHED_PIZZA:
             nextAction = self.lastAction
@@ -20,30 +25,14 @@ class Solution:
             else:
                 nextAction = Action.TOUCH
         self.lastAction = nextAction
+        # return your action for this round
         return nextAction
 
 
 if __name__ == '__main__':
-    # generation of the maze
-    generator = MazeGenerator()
-    maze = generator.create_maze(5, 5)
-    filepath = "test"
-    maze.save(maze, filename=filepath)
-
-    # the name of the environment
-    __ENVIRONMENT__ = "test"
-    # display the interface (or not)
-    __GUI__ = True
-
-
-    game = Game(__ENVIRONMENT__, __GUI__)
-    # returns a turtle that execute actions on its environment
-    turtle = game.start()
-    
-    sol = Solution()
-    result = None
-    while not game.isWon():
-        time.sleep(0.3)
-        r = random.randint(0, 3)
-        action = sol.nextAction(result)
-        result = turtle.execute(action)
+    # create the assessor (nb runs, min height, min width, max height, max width)
+    assessor = Assessor(10, 10, 10, 20, 20)
+    # provide your solution
+    assessor.setSolution(MySolution)
+    # run the assessor and wait for your score
+    assessor.run()

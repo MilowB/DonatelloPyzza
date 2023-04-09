@@ -3,6 +3,11 @@ from donatellopyzza import Action
 from donatellopyzza import Feedback
 from donatellopyzza import Assessor
 
+from .game import *
+from .mazeGenerator import MazeGenerator
+from .assessor import Assessor
+import random
+
 class MySolution:
     # do not pass any parameter to this constructor
     def __init__(self):
@@ -33,6 +38,6 @@ if __name__ == '__main__':
     # create the assessor (nb runs, min height, min width, max height, max width)
     assessor = Assessor(100, 10, 10, 20, 20)
     # provide your solution
-    assessor.setSolution(Solution)
+    assessor.setSolution(MySolution)
     # run the assessor and wait for your score
     assessor.run()

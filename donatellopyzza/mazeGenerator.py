@@ -117,7 +117,7 @@ class Maze:
 
 
 class MazeGenerator():
-    def create_maze(self, nrows, ncolumns, seed=None, complexity=0):
+    def create_maze(self, nrows, ncolumns, complexity=0, seed=None):
         if nrows <= 9 and ncolumns <= 9:
             print("WARNING: make a maze that have at least 10 rows and 10 columns. "
                 "The generated maze has been sized at 10x10")
