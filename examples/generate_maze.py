@@ -1,15 +1,15 @@
 from donatellopyzza import Game
 from donatellopyzza import Action
 from donatellopyzza import Feedback
-from donatellopyzza import Maze
+from donatellopyzza import MazeGenerator
 import random
 import time
 
 
 if __name__ == '__main__':
     # generate and save a new random maze
-    maze = Maze(10, 10)
-    maze = Maze.create_maze()
+    generator = MazeGenerator()
+    maze = generator.create_maze(10, 10)
     fn = "test"
     maze.save(maze, filename=fn)
 

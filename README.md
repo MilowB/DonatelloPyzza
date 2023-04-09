@@ -103,11 +103,11 @@ Have fun!
 
 ## Roadmap
 
-- make tests and automatic deployment of this package
-- add a test infrastructure to validate users' algorithm on several mazes
-- make possible to the user to select the difficulty its maze when generating it
+- make several tests for this package
 - make tutorials to help beginners use this package
 - make a more formal documentation
 - promote this game through a website
-- ~~GUI improvements~~
+- ~~add a test infrastructure to validate users' algorithm on several mazes~~
+- ~~make possible to the user to select the difficulty its maze when generating it~~
+- ~~debug the GUI~~
 - ~~add a gridworld generator~~
