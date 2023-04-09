@@ -43,9 +43,10 @@ class Agent:
     def getCurrentPosition(self):
         return self.position
 
-    def draw(self, screen, xy):
+    def draw(self, screen, xy, scale):
         cste_angle = 90
         new_angle = cste_angle * self.orientation.value
+        self.turtle = pygame.transform.scale(self.turtle, (scale, scale))
         self.turtle = pygame.transform.rotate(self.turtle, new_angle - self.angle)
         self.angle = new_angle
         screen.blit(self.turtle, xy)

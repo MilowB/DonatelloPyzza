@@ -9,6 +9,7 @@ from numpy.random import random_integers as rand
 import os, sys, inspect
 import pkg_resources
 from pkg_resources import resource_string
+from random import randint
 
 #Pour inclure les fichiers de l'environnement
 cmd_subfolder_grid = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],"grid")))
@@ -123,6 +124,12 @@ class MazeGenerator():
                 "The generated maze has been sized at 10x10")
             nrows = 10
             ncolumns = 10
+        r = nrows
+        c = ncolumns
+        deviation = (abs(c-(r+c)/2)/2)
+        nrows = int(min(r, c) + deviation)
+        ncolumns = int(max(r, c) - deviation)
+
         startPosition = 1
         pizzaPosition = 1
 
@@ -171,24 +178,25 @@ class MazeGenerator():
                         maze.set_wall(next_x + (x - next_x) // 2, next_y + (y - next_y) // 2)
                         x, y = next_x, next_y
 
-        x, y = rand(0, rows // 2) * 2, rand(0, columns // 2) * 2
+        x, y = randint(0, rows), randint(0, columns)
         while ((x+1 >= columns or x+1 >= rows or
             x-1 <= 0 or x-1 <= 0 or
             y+1 >= columns or y+1 >= rows or
             y-1 <= 0 or y-1 <= 0) or
             (maze.is_wall(x+1, y) and maze.is_wall(x-1, y) and maze.is_wall(x, y+1) and maze.is_wall(x, y-1))):
-            x, y = rand(0, rows // 2) * 2, rand(0, columns // 2) * 2
+            x, y = randint(0, rows), randint(0, columns)
         tx, ty = x, y
         maze.set_turtle_position(x, y)
 
-        x, y = rand(0, rows // 2) * 2, rand(0, columns // 2) * 2
+        x, y = randint(0, rows), randint(0, columns)
         while ((x+1 >= columns or x+1 >= rows or
             x-1 <= 0 or x-1 <= 0 or
             y+1 >= columns or y+1 >= rows or
             y-1 <= 0 or y-1 <= 0) or
             (maze.is_wall(x+1, y) and maze.is_wall(x-1, y) and maze.is_wall(x, y+1) and maze.is_wall(x, y-1)) or
-            abs(tx-x) + abs(ty-y) <= (columns+rows)/4):
-            x, y = rand(0, rows // 2) * 2, rand(0, columns // 2) * 2
+            abs(tx-x) + abs(ty-y) <= (columns+rows)/4 or
+            maze.is_turtle(x, y)):
+            x, y = randint(0, rows), randint(0, columns)
         maze.set_pizza_position(x, y)
 
         return maze

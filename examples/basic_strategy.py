@@ -24,7 +24,7 @@ def strategy(previousAction, feedback):
         elif previousAction == Action.TURN_LEFT:
             nextAction = Action.TOUCH
     previousAction = nextAction
-    return nextAction
+    return nextAction, previousAction
 
 if __name__ == '__main__':
     # the name of the environment
@@ -37,7 +37,8 @@ if __name__ == '__main__':
     turtle = game.start()
     
     feedback = None
+    previousAction = Action.MOVE_FORWARD
     while not game.isWon():
         time.sleep(0.3)
-        nextAction = strategy(previousAction, feedback)
+        nextAction, previousAction = strategy(previousAction, feedback)
         feedback = turtle.execute(nextAction)
