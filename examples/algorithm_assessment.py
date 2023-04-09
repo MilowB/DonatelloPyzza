@@ -10,7 +10,7 @@ class MySolution:
         self.lastAction = Action.MOVE_FORWARD
 
     # your solution needs to show this prototype to be used by the assessor
-    # always call it "nextAction" and pass a single parameter which will be the feedback of your last action
+    # always call it "nextAction" and add a single parameter which will be the feedback of your last action
     def nextAction(self, feedback):
         # process what you need to here
         nextAction = None
