@@ -117,7 +117,12 @@ class Maze:
 
 
 class MazeGenerator():
-    def create_maze(self, nrows, ncolumns, seed=None, complexity=.5, density=.2):
+    def create_maze(self, nrows, ncolumns, seed=None, complexity=0):
+        if nrows <= 9 and ncolumns <= 9:
+            print("WARNING: make a maze that have at least 10 rows and 10 columns. "
+                "The generated maze has been sized at 10x10")
+            nrows = 10
+            ncolumns = 10
         startPosition = 1
         pizzaPosition = 1
 
@@ -127,8 +132,12 @@ class MazeGenerator():
         if seed is not None:
             np.random.seed(seed)
 
+        density = 1 - complexity
+        if nrows <= 10 or ncolumns <= 10:
+            density = min(density + 0.5, 1)
+
         # Adjust complexity and density relative to maze size
-        complexity = int(complexity * (5 * (rows + columns)))
+        complexity = int((1-complexity) * (5 * (rows + columns)))
         density = int(density * ((rows // 2) * (columns // 2)))
 
         maze = Maze(rows, columns)

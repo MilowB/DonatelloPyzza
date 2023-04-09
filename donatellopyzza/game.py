@@ -22,8 +22,15 @@ class Action(Enum):
     def __int__(self):
         return self.value
 
+    def __eq__(self, act):
+        try:
+            return self.value == act.value
+        except:
+            return False
+
 # TODO: remove duplicate in grid.py
 class Feedback(Enum):
+    NO_FEEDBACK = -1, "No_feedback"
     COLLISION = 0, "Collision"
     MOVED = 1, "Moved"
     MOVED_ON_PIZZA = 2, "Moved_on_pizza"
@@ -41,7 +48,10 @@ class Feedback(Enum):
         return self.value
 
     def __eq__(self, fb):
-        return self.value == fb.value
+        try:
+            return self.value == fb.value
+        except:
+            return False
 
 class Game:
     def __init__(self, envName, gui):

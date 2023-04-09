@@ -1,9 +1,11 @@
-BBBBBBBBB
-B       B
-BBB BBB B
-B B B B B
-B B B p B
-B B   B B
-B aBBBB B
-B       B
-BBBBBBBBB
+BBBBBBBBBBB
+B         B
+B BBB BBaBB
+B B   B   B
+B BBBBBBB B
+B       B B
+B pBB BBB B
+B   B B   B
+B BBB BBB B
+B         B
+BBBBBBBBBBB

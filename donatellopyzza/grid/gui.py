@@ -96,7 +96,7 @@ class GUI:
                 elif self.squareToDisplay[i][0] == -2:
                     color = pygame.Color(255, 255, 255, 255)
                 elif self.squareToDisplay[i][0] == -3:
-                    color = pygame.Color(200, 0, 0, 255)
+                    color = pygame.Color(0, 0, 200, 255)
             pygame.draw.rect(self.screen,  color, self.squareToDisplay[i][1], 0)
             if self.squareToDisplay[i][0] is None:
                 self.screen.blit(self.pizza, self.squareToDisplay[i][1])

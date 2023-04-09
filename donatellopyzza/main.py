@@ -3,17 +3,31 @@ from .mazeGenerator import MazeGenerator
 from .assessor import Assessor
 import random
 
-def solution(feedback):
-    r = random.randint(0, 3)
-    actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
-    result = actions[r]
-    return result
+class Solution:
+    def __init__(self):
+        self.lastAction = Action.MOVE_FORWARD
+
+    def nextAction(self, feedback):
+        nextAction = None
+        if feedback == Feedback.TOUCHED_PIZZA:
+            nextAction = self.lastAction
+        else:
+            if self.lastAction == Action.TOUCH:
+                if feedback == Feedback.TOUCHED_WALL:
+                    nextAction = Action.TURN_RIGHT
+                elif feedback == Feedback.TOUCHED_NOTHING:
+                    nextAction = Action.MOVE_FORWARD
+            else:
+                nextAction = Action.TOUCH
+        self.lastAction = nextAction
+        return nextAction
+
+
 
 if __name__ == '__main__':
-    '''
     # generation of the maze
     generator = MazeGenerator()
-    maze = generator.create_maze(10, 10)
+    maze = generator.create_maze(5, 5)
     filepath = "test"
     maze.save(maze, filename=filepath)
 
@@ -27,13 +41,16 @@ if __name__ == '__main__':
     # returns a turtle that execute actions on its environment
     turtle = game.start()
     
+    sol = Solution()
+    result = None
     while not game.isWon():
         time.sleep(0.3)
         r = random.randint(0, 3)
-        actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
-        result = turtle.execute(actions[r])
+        action = sol.nextAction(result)
+        result = turtle.execute(action)
     '''
 
-    assessor = Assessor(10000, 10, 10, 20, 20, 1000)
-    assessor.setSolution(solution)
+    assessor = Assessor(100, 10, 10, 20, 20)
+    assessor.setSolution(Solution)
     assessor.run()
+    '''

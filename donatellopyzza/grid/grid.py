@@ -41,6 +41,7 @@ class Grid:
     Retour : résultat du mouvement de l'agent (1 si mur, 2 sinon)
     '''
     def step(self, agent, action):
+        assert action != None and action.value < 4, "you tried to execute an invalid action"
         # check the game events before executing a new action
         for event in pygame.event.get():
             if event.type == pygame.QUIT:  
