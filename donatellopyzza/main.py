@@ -23,7 +23,6 @@ class Solution:
         return nextAction
 
 
-
 if __name__ == '__main__':
     # generation of the maze
     generator = MazeGenerator()
@@ -48,9 +47,3 @@ if __name__ == '__main__':
         r = random.randint(0, 3)
         action = sol.nextAction(result)
         result = turtle.execute(action)
-    '''
-
-    assessor = Assessor(100, 10, 10, 20, 20)
-    assessor.setSolution(Solution)
-    assessor.run()
-    '''
