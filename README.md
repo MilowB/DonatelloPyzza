@@ -95,6 +95,7 @@ Have fun!
 
 ## What's new
 
+
 - 2023-04-07 (v1.5)
     Integration of a maze generator from Alexandru Văleanu (https://github.com/AlexandruValeanu/Mazify)
 - 2023-01-17 (v1.2)

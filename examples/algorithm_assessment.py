@@ -3,11 +3,6 @@ from donatellopyzza import Action
 from donatellopyzza import Feedback
 from donatellopyzza import Assessor
 
-from .game import *
-from .mazeGenerator import MazeGenerator
-from .assessor import Assessor
-import random
-
 class MySolution:
     # do not pass any parameter to this constructor
     def __init__(self):
