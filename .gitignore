@@ -1,3 +1,6 @@
 dist/*
+donatellopyzza/documentation/build/*
+donatellopyzza/documentation/make.bat
+donatellopyzza/documentation/Makefile
 donatellopyzza/__pycache__/*
 donatellopyzza/grid/__pycache__/*
