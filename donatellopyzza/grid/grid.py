@@ -73,8 +73,8 @@ class Grid:
         else:
             result = self.result_generic_env(square, squareTmp, square_touched, agent, action)
 
-        if not self.foundPizza:
-            self.nbActions += 1
+        #if not self.foundPizza:
+        self.nbActions += 1
 
         return result
     

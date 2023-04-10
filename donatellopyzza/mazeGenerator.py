@@ -124,23 +124,29 @@ class MazeGenerator():
                 "The generated maze has been sized at 10x10")
             nrows = 10
             ncolumns = 10
-        r = nrows
-        c = ncolumns
-        deviation = (abs(c-(r+c)/2)/2)
-        nrows = int(min(r, c) + deviation)
-        ncolumns = int(max(r, c) - deviation)
+        elif nrows / 2 >= ncolumns or ncolumns / 2 >= nrows:
+            print("WARNING: this maze generator struggles making non-square mazes. One size of your maze is too large compared to other. The maze has been squarred a little bit.")
+            r = nrows
+            c = ncolumns
+            deviation = (abs(c-(r+c)/2)/2)
+            nrows = int(min(r, c) + deviation)
+            ncolumns = int(max(r, c) - deviation)
 
+        if nrows % 2 == 1:
+            nrows -= 1
+            ncolumns -= 1
+        
         startPosition = 1
         pizzaPosition = 1
-
-        rows = (nrows // 2) * 2 + 1
-        columns = (ncolumns // 2) * 2 + 1
+        
+        rows = int((nrows // 2) * 2 + 1)
+        columns = int((ncolumns // 2) * 2 + 1)
 
         if seed is not None:
             np.random.seed(seed)
 
         density = 1 - complexity
-        if nrows <= 10 or ncolumns <= 10:
+        if rows <= 10 or ncolumns <= 10:
             density = min(density + 0.5, 1)
 
         # Adjust complexity and density relative to maze size
@@ -152,7 +158,7 @@ class MazeGenerator():
 
         # Make aisles
         for i in range(density):
-            x, y = rand(0, rows // 2) * 2, rand(0, columns // 2) * 2
+            x, y = randint(0, rows // 2) * 2, randint(0, columns // 2) * 2
             maze.set_wall(x, y)
 
             for j in range(complexity):
@@ -171,7 +177,7 @@ class MazeGenerator():
                     neighbours.append((x, y + 2))
 
                 if len(neighbours):
-                    next_x, next_y = neighbours[rand(0, len(neighbours) - 1)]
+                    next_x, next_y = neighbours[randint(0, len(neighbours) - 1)]
 
                     if not maze.is_wall(next_x, next_y):
                         maze.set_wall(next_x, next_y)

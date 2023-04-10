@@ -6,7 +6,7 @@ import random
 if __name__ == '__main__':
     # generate and save a new random maze
     generator = MazeGenerator()
-    maze = generator.create_maze(20, 20)
+    maze = generator.create_maze(12, 12)
     fn = "test"
     maze.save(maze, filename=fn)
 
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
 
     i = 0
-    while i < 30:
+    while i < 1500:
         time.sleep(0.3)
         r = random.randint(0, 3)
         actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]

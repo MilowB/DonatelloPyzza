@@ -1,21 +1,13 @@
-BBBBBBBBBBBBBBBBBBBBB
-B     B             B
-B BBB B BBB BBBBB B B
-B   B   B B     B B B
-B BBB BBB BBB BBBBB B
-B B   B  a  B B     B
-B BBB B BBBBB B BBB B
-B B   B B     B B B B
-B BBB B BBBBBBBBB B B
-B   B B   B       B B
-B BBB BBB BBB BBB B B
-B B     B     B B BpB
-BBB B BBB BBBBB B B B
-B B B B   B       B B
-B B B BBB BBBBBBBBB B
-B       B           B
-B BBB B B BBB BBBBB B
-B B B   B B B B   B B
-B B BBBBBBB BBB BBB B
-B                   B
-BBBBBBBBBBBBBBBBBBBBB
+BBBBBBBBBBBBB
+B     B     B
+B BBB BBB B B
+B B     B B B
+B p BBBBB B B
+B   B     B B
+B BBB BBB BBB
+B B   B B   B
+B BBBBB a B B
+B       B B B
+B BBBBBBB B B
+B           B
+BBBBBBBBBBBBB
