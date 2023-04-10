@@ -48,7 +48,7 @@ Once the game has started, you get a turtle instance which you can move around t
 To do this, the following instruction can be used:
 
 ```python
-feedback = turtle.execute(Action.FORWARD)
+feedback = turtle.execute(Action.MOVE_FORWARD)
 print(feedback)
 ```
 
