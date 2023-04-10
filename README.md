@@ -112,6 +112,6 @@ Have fun!
 - promote this game through a website
 - ~~adapt the GUI to resize it depending on the number of cells~~
 - ~~add a test infrastructure to validate users' algorithm on several mazes~~
-- ~~make possible to the user to select the difficulty its maze when generating it~~
+- ~~make possible to the user to select the difficulty of the maze when generating it~~
 - ~~debug the GUI~~
 - ~~add a gridworld generator~~
