@@ -4,7 +4,7 @@ DonatelloPyzza is a simple and educational game to help beginners learn Python i
 
 A turtle can move through a grid and touch each cells until it finds the pizza.
 This game can be used at several levels:
-- for young beginners: they can hard-code a path to help the turtle find its pizza and small mazes.
+- for young beginners: they can hard-code a path to help the turtle find its pizza in small mazes.
 - for beginners: they can develop intuitive heuristics to find the pizza
 - for intermediate or advanced developers: they can develop a complex path finding method or AI-based solutions.
 
