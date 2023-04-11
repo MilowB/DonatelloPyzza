@@ -1,6 +1,6 @@
 ## DonatelloPyzza
 
-DonatelloPyzza is a simple and educational game to help beginners learn Python in high school and university.
+DonatelloPyzza is a simple and educational game to help beginners learn algorithmic in Python in high school and university.
 
 A turtle can move through a grid and touch each cells until it finds the pizza.
 This game can be used at several levels:
