@@ -23,7 +23,7 @@ if __name__ == '__main__':
     actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]
 
     i = 0
-    while i < 1500:
+    while i < 30:
         time.sleep(0.3)
         r = random.randint(0, 3)
         actions = [Action.MOVE_FORWARD, Action.TOUCH, Action.TURN_LEFT, Action.TURN_RIGHT]

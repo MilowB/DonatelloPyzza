@@ -3,7 +3,7 @@ from tqdm import tqdm
 import os, sys
 import time
 
-sys.path.insert(0, 'donatellopyzza/')
+#sys.path.insert(0, os.path.abspath('donatellopyzza/'))
 
 from .mazeGenerator import MazeGenerator
 from .game import Feedback

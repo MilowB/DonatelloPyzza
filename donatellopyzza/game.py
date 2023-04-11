@@ -1,8 +1,6 @@
 from .turtleAgent import Turtle
 from .envBuilder import *
-# @DEBUG from .turtleAgent import Turtle
-# @DEBUG from .envBuilder import *
-# @DEBUG from .generator import *
+
 import time
 import random
 from enum import Enum
