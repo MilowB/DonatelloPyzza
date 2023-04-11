@@ -3,10 +3,10 @@ import pkg_resources
 from pathlib import Path
 from pkg_resources import resource_string
 
-sys.path.insert(0, os.path.abspath('donatellopyzza/grid'))
+sys.path.insert(0, os.path.abspath("donatellopyzza/grid/"))
 
-from parser import Parser
 from grid import Grid
+from mazeParser import Parser
 
 
 class EnvBuilder:
