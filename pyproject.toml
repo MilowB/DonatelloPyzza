@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "DonatelloPyzza"
-version = "1.6.5.1"
+version = "1.6.6"
 authors = [
   { name="Mickaël Bettinelli", email="mickael.bettinelli@univ-smb.fr" },
 ]
@@ -15,6 +15,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: Free for non-commercial use",
     "Operating System :: OS Independent",
+]
+dependencies = [
+    "pygame == 2.1.2", 
+    "tqdm"
 ]
 
 [project.urls]

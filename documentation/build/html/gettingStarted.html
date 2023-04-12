@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting started &mdash; DonatelloPyzza 1.6.3 documentation</title>
+  <title>Installation &mdash; DonatelloPyzza 1.6.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -42,9 +42,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The basics</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#learning-the-rules-actions-and-feedbacks">Learning the rules:  actions and feedbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#testing-the-full-code">Testing the full code</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -73,9 +74,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Getting started</li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/gettingStarted.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/gettingStarted.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -83,11 +84,89 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="getting-started">
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>This package can be easily installed through <code class="docutils literal notranslate"><span class="pre">pip</span></code>. If you do not know what is pip or if it is not installed on your machine, you should first read this page:</p>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/installation/">https://pip.pypa.io/en/stable/installation/</a></p>
+<p>Otherwise, you are ready to install Donatello Pyzza!</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">donatellopyzza</span></code></p>
+</section>
+<section id="getting-started">
 <h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
-<p>Lorem ipsum</p>
-<div class="toctree-wrapper compound">
+<p>Now Donatello Pyzza has been installed, let’s see how to use it. First, import the minimum modules to run the game:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">donatellopyzza</span> <span class="kn">import</span> <span class="n">Game</span>
+<span class="kn">from</span> <span class="nn">donatellopyzza</span> <span class="kn">import</span> <span class="n">Action</span>
+<span class="kn">from</span> <span class="nn">donatellopyzza</span> <span class="kn">import</span> <span class="n">Feedback</span>
+</pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">Game</span></code> is a class that we use to create a game instance. <code class="docutils literal notranslate"><span class="pre">Action</span></code> and <code class="docutils literal notranslate"><span class="pre">Feedback</span></code> are two classes used to describe game events. We will come back to these classes later.</p>
+<p>Let’s create the game and its environment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># specify the name of the maze</span>
+<span class="n">__ENVIRONMENT__</span> <span class="o">=</span> <span class="s2">&quot;maze&quot;</span>
+<span class="c1"># display the interface (or not)</span>
+<span class="n">__GUI__</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">game</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="n">__ENVIRONMENT__</span><span class="p">,</span> <span class="n">__GUI__</span><span class="p">)</span>
+<span class="c1"># returns a turtle that execute actions on its environment</span>
+<span class="n">turtle</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The previous code initialize the game and start it. Once the game has started, you get a turtle instance which you can move around the board.
+To do this, the following instruction can be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feedback</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">Action</span><span class="o">.</span><span class="n">MOVE_FORWARD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can print the feedback returned from the <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method to see what happened after your action.
+As you can see, this code only move your turtle one time. You can write a loop around the <code class="docutils literal notranslate"><span class="pre">turtle.execute(Action.MOVE_FORWARD)</span></code> call to watch your turtle move several times.
+To illustrate, you can use the <code class="docutils literal notranslate"><span class="pre">game.isWon()</span></code> method to ensure to loop on the <code class="docutils literal notranslate"><span class="pre">turtle.execute()</span></code> until the turtle find the pizza.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="ow">not</span> <span class="n">game</span><span class="o">.</span><span class="n">isWon</span><span class="p">():</span>
+    <span class="n">feedback</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">Action</span><span class="o">.</span><span class="n">MOVE_FORWARD</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="learning-the-rules-actions-and-feedbacks">
+<h1>Learning the rules:  actions and feedbacks<a class="headerlink" href="#learning-the-rules-actions-and-feedbacks" title="Permalink to this heading"></a></h1>
+<p>Let’s speak about <code class="docutils literal notranslate"><span class="pre">Action</span></code> and <code class="docutils literal notranslate"><span class="pre">Feedback</span></code>. They simply define the different actions and feedbacks types. You can use the following actions in your code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Action.MOVE_FORWARD -&gt; make your turtle go one step forward
+Action.TURN_RIGHT -&gt; your turtle will turn on its right
+Action.TURN_LEFT -&gt; on its left
+Action.TOUCH -&gt; the turtle will touch the cell in front of it to know its type
+</pre></div>
+</div>
+<p>Depending on your action, the game can provide you one of the following feedback:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Feedback.COLLISION -&gt; you just tried to walk in a wall !
+Feedback.MOVED -&gt; you successfully moved
+Feedback.MOVED_ON_PIZZA -&gt; your turtle is on the pizza (congratulations!)
+Feedback.TOUCHED_WALL -&gt; you just touched a wall
+Feedback.TOUCHED_NOTHING -&gt; the touched cell is empty (no wall, no pizza, you can walk on it)
+Feedback.TOUCHED_PIZZA -&gt; the turtle touched the pizza
+</pre></div>
+</div>
+</section>
+<section id="testing-the-full-code">
+<h1>Testing the full code<a class="headerlink" href="#testing-the-full-code" title="Permalink to this heading"></a></h1>
+<p>You can copy and paste the full code of this example and try it on your machine.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">donatellopyzza</span> <span class="kn">import</span> <span class="n">Game</span>
+<span class="kn">from</span> <span class="nn">donatellopyzza</span> <span class="kn">import</span> <span class="n">Action</span>
+<span class="kn">from</span> <span class="nn">donatellopyzza</span> <span class="kn">import</span> <span class="n">Feedback</span>
+
+<span class="c1"># specify the name of the maze</span>
+<span class="n">__ENVIRONMENT__</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span>
+<span class="c1"># display the interface (or not)</span>
+<span class="n">__GUI__</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">game</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="n">__ENVIRONMENT__</span><span class="p">,</span> <span class="n">__GUI__</span><span class="p">)</span>
+<span class="c1"># returns a turtle that execute actions on its environment</span>
+<span class="n">turtle</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="ow">not</span> <span class="n">game</span><span class="o">.</span><span class="n">isWon</span><span class="p">():</span>
+   <span class="n">feedback</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">Action</span><span class="o">.</span><span class="n">MOVE_FORWARD</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Congratulations, you found the pizza with 4 movements!</p>
+<p>You can find more examples in the <code class="docutils literal notranslate"><span class="pre">Tutorials</span></code> section of this documentation. They will present more advanced functionnalities of this package.</p>
 </section>
 
 

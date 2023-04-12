@@ -35,7 +35,7 @@ You are welcome to use, remix, transform, and build upon the material as long as
 
 This documentation will help you to make good use of this game. Please report any documentation issues, including typos or unclear elements. 
 
-You are welcome to join us on the github page of DonatelloPyzza!
+You are welcome to join us on the github repository of DonatelloPyzza!
 
 
 

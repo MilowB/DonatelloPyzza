@@ -14,7 +14,6 @@ This game can be used at several levels:
 
 ## Installation
 
-`pip install -r requirements.txt`
 
 `pip install donatellopyzza`
 
