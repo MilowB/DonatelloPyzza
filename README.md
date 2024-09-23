@@ -47,11 +47,15 @@ Once the game has started, you get a turtle instance which you can move around t
 To do this, the following instruction can be used:
 
 ```python
-feedback = turtle.execute(Action.MOVE_FORWARD)
+feedback, _ = turtle.execute(Action.MOVE_FORWARD)
 print(feedback)
 ```
 
 You can use the feedback from the `execute()` method to see what happened after your action.
+
+Finally, let's run your turtle:
+
+> python yourfile.py
 
 ## Learning the rules:  actions and feedbacks
 
