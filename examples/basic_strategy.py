@@ -41,4 +41,4 @@ if __name__ == '__main__':
     while not game.isWon():
         time.sleep(0.3)
         nextAction, previousAction = strategy(previousAction, feedback)
-        feedback = turtle.execute(nextAction)
+        feedback, _ = turtle.execute(nextAction)

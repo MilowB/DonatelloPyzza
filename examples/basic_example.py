@@ -19,5 +19,5 @@ if __name__ == '__main__':
             Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.MOVE_FORWARD]
         # execute the path step by step
         for a in actions:
-            time.sleep(0.3)
-            result = turtle.execute(a)
+            result, _ = turtle.execute(a)
+            time.sleep(1)

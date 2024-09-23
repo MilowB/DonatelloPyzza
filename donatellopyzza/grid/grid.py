@@ -3,26 +3,6 @@ from gui import *
 from turn import *
 import pygame
 
-class Feedback(Enum):
-    COLLISION = 0, "Collision"
-    MOVED = 1, "Moved"
-    MOVED_ON_PIZZA = 2, "Moved_on_pizza"
-    TOUCHED_WALL = 3, "Touched_wall"
-    TOUCHED_NOTHING = 4, "Touched_nothing"
-    TOUCHED_PIZZA = 5, "Touched_pizza"
-
-    def __new__(cls, value, name):
-        member = object.__new__(cls)
-        member._value_ = value
-        member.fullname = name
-        return member
-
-    def __int__(self):
-        return self.value
-
-    def __eq__(self, fb):
-        return self.value == fb.value
-
 class Grid:
     def __init__(self, g, m, a, d, name):
         self.display = d
@@ -73,10 +53,9 @@ class Grid:
         else:
             result = self.result_generic_env(square, squareTmp, square_touched, agent, action)
 
-        #if not self.foundPizza:
         self.nbActions += 1
-
-        return result
+        reward = self.map.calculateReward(agent, result)
+        return result, reward
     
     def pizzaIsFound(self):
         return self.foundPizza
