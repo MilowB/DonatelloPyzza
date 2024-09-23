@@ -98,7 +98,8 @@ Have fun!
 
 ## What's new
 
-
+- 2024-09-23 (v1.7)
+    Add a reward function in order to play the game with reinforcement learning
 - 2023-04-09 (v1.6)
     Integration of an algorithm assessment class. Allows to evaluate automatically a solution on several mazes
 - 2023-04-07 (v1.5)
@@ -113,6 +114,7 @@ Have fun!
 - make tutorials to help beginners use this package
 - make a more formal documentation
 - promote this game through a website
+- ~~add a reward in the step() method to allow reinforcment learning~~
 - ~~adapt the GUI to resize it depending on the number of cells~~
 - ~~add a test infrastructure to validate users' algorithm on several mazes~~
 - ~~make possible to the user to select the difficulty of the maze when generating it~~
