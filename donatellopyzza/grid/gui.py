@@ -6,6 +6,7 @@ import math
 class GUI:
     def __init__(self, height, width):
         pygame.init()
+        self.customizedColors = None
         self.squareToDisplay = []
         self.agentToDisplay = []
         self.height = height
@@ -13,7 +14,7 @@ class GUI:
         self.squareWidth = 75
         self.disp = False
         self.colors = []
-        self.shadeColors = []
+        #self.shadeColors = [] # to remove
         path = pkg_resources.resource_filename(__name__, "../data/images/pizza.png")
         self.pizza = pygame.image.load(path)
         for i in range(height * width):
@@ -22,7 +23,7 @@ class GUI:
             b = randint(0, 255)
             sr = r - 15
             self.colors.append(pygame.Color(r, g, b, 255))
-            self.shadeColors.append(pygame.Color(sr, g, b, 255))
+            #self.shadeColors.append(pygame.Color(sr, g, b, 255)) # to remove
         self.endCt = 0
 
     def scale(self, value):
@@ -33,12 +34,13 @@ class GUI:
     Objectif : Mettre a jour l'image
     Param : map - la grille
     '''
-    def update(self, map):
+    def update(self, map, customizedColors=None):
+        self.customizedColors = customizedColors
         self.squareWidth = self.scale(len(self.squareToDisplay))
         self.squareToDisplay = []
         self.agentToDisplay = []
         for square in map.squares:
-            self.square(square.end, square.color, square._char, (square.x * self.squareWidth) - self.squareWidth, (square.y * self.squareWidth) - self.squareWidth, square.touched)
+            self.square(square.end, square.color, square._char, square.x, square.y, (square.x * self.squareWidth) - self.squareWidth, (square.y * self.squareWidth) - self.squareWidth, square.touched)
             for ag in square._filled:
                 self.agent(square, ag)
 
@@ -46,10 +48,10 @@ class GUI:
     Objectif : Ajoute un carre a la liste d'affichage
     Param : Int, Int, Int - w, le type de case (mur ou pas), x, y, les coordonnees de la case
     '''
-    def square(self, end, color, w, x, y, touched):
+    def square(self, end, color, w, sqx, sqy, x, y, touched):
         width = self.squareWidth
 
-        col = -1
+        col = pygame.Color(0, 180, 0, 255)
         if end:
             col = color
             
@@ -57,7 +59,13 @@ class GUI:
             self.touchedSquare(x, y, self.squareWidth - 1, self.squareWidth - 1)
         elif w == "B":
             self.wall(x, y, self.squareWidth - 1, self.squareWidth - 1)
+        elif w == "p":
+            self.squareToDisplay.append([col, (x ,y, width, width)])
         else:
+            print(self.customizedColors)
+            print()
+            if not self.customizedColors is None:
+                col = self.customizedColors[(sqx, sqy)]
             self.squareToDisplay.append([col, (x ,y, width, width)])
 
     '''
@@ -65,11 +73,11 @@ class GUI:
     Param : Int, Int, Int, Int - x, y, les coordonnees de la case, width, height, les dimensions de la case
     '''
     def wall(self, x, y, width, heigth):
-        color = -2
+        color = pygame.Color(255, 255, 255, 255)
         self.squareToDisplay.append([color, (x ,y, width, heigth)])
 
     def touchedSquare(self, x, y, width, heigth):
-        color = -3
+        color = pygame.Color(0, 0, 200, 255)
         self.squareToDisplay.append([color, (x ,y, width, heigth)])
 
     '''
@@ -95,14 +103,9 @@ class GUI:
         green = pygame.Color(0, 180, 0, 255)
         self.screen.fill(black)
         for i in range(len(self.squareToDisplay)):
-            color = pygame.Color(0, 180, 0, 255)
+            color = green
             if not self.squareToDisplay[i][0] is None:
-                if self.squareToDisplay[i][0] > -1:
-                    color = self.shadeColors[self.squareToDisplay[i][0]]
-                elif self.squareToDisplay[i][0] == -2:
-                    color = pygame.Color(255, 255, 255, 255)
-                elif self.squareToDisplay[i][0] == -3:
-                    color = pygame.Color(0, 0, 200, 255)
+                color = self.squareToDisplay[i][0]
             pygame.draw.rect(self.screen,  color, self.squareToDisplay[i][1], 0)
             if self.squareToDisplay[i][0] is None:
                 self.pizza = pygame.transform.scale(self.pizza, (squareWidth, squareWidth))

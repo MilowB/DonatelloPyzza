@@ -71,6 +71,20 @@ class Game:
         return Turtle(agent, env)
 
     '''
+    Goal : get a dictionary of every non-wall squares with None values
+    Return : return the aforementioned dictionary
+    '''
+    def getSquaresDict(self):
+        return self.env.getSquaresAsDict()
+
+    '''
+    Goal : modify the color of each non-wall square
+    Param : colors - a dictionary with keys (x, y) and pygame.Color as values
+    '''
+    def setSquaresColors(self, colors):
+        self.env.setSquaresColors(colors)
+
+    '''
     Goal : start the game by initializing the environment
     Return : True if the turtle found the pizza, else False
     '''

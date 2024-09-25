@@ -14,6 +14,16 @@ class Grid:
         self.agents = a
         self.nbActions = 0
         self.foundPizza = False
+        self.colorSquares = None
+
+    def setSquaresColors(self, colors):
+        self.colorSquares = colors
+
+    def getSquaresAsDict(self):
+        d = {}
+        for square in self.map.squares:
+            d[square.position()] = None
+        return d
 
     '''
     Objectif : Fait executer a l'agent une action
@@ -44,7 +54,7 @@ class Grid:
         agent.setCurrentPosition(square)
 
         if self.display:
-            self.gui.update(self.map)
+            self.gui.update(self.map, self.colorSquares)
             self.gui.display()
 
         result = None
