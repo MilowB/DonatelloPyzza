@@ -62,8 +62,6 @@ class GUI:
         elif w == "p":
             self.squareToDisplay.append([col, (x ,y, width, width)])
         else:
-            print(self.customizedColors)
-            print()
             if not self.customizedColors is None:
                 col = self.customizedColors[(sqx, sqy)]
             self.squareToDisplay.append([col, (x ,y, width, width)])
