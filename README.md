@@ -99,8 +99,7 @@ Have fun!
 ## What's new
 
 - 2024-09-25 (v1.7)
-      - Add a reward function in order to play the game with reinforcement learning
-      - Add the possibility to change the color of each cell for debugging
+    Add a reward function in order to play the game with reinforcement learning. Add the possibility to change the color of each cell for debugging
 - 2023-04-09 (v1.6)
     Integration of an algorithm assessment class. Allows to evaluate automatically a solution on several mazes
 - 2023-04-07 (v1.5)
