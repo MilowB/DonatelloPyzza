@@ -1,6 +1,6 @@
-import sys, os
-sys.path.insert(0, os.path.abspath("donatellopyzza/"))
-from game import *
+from donatellopyzza import Game
+from donatellopyzza import Action
+from donatellopyzza import Feedback
 
 import time
 

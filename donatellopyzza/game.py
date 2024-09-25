@@ -1,9 +1,10 @@
 from .turtleAgent import Turtle
 from .envBuilder import *
 
-import time
-import random
 from enum import Enum
+import warnings
+import random
+import time
 
 class Action(Enum):
     MOVE_FORWARD = 0, "Move_forward"
@@ -75,6 +76,7 @@ class Game:
     Return : return the aforementioned dictionary
     '''
     def getSquaresDict(self):
+        warnings.warn("Warning: getSquaresDict() should only be used for debugging!", UserWarning)
         return self.env.getSquaresAsDict()
 
     '''
