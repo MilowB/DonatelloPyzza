@@ -2,8 +2,9 @@ from donatellopyzza import Game
 from donatellopyzza import Action
 from donatellopyzza import Feedback
 
+from random import randint
+import pygame
 import time
-
 
 if __name__ == '__main__':
     # the name of the environment
