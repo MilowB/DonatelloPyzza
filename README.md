@@ -79,7 +79,7 @@ Depending on your action, the game can provide you one of the following feedback
 
 ## Generating and save your own mazes
 
-`Maze` is a class used to generate and save new mazes. You can retrieve saved maze by their names as indicated in example files. A new maze is generated (and save) as follow:
+`Maze` is a class used to generate and save new mazes. You can retrieve saved maze by their names as indicated in example files. A new maze is generated (and saved) as follow:
 
 ```python
 from donatellopyzza import MazeGenerator
@@ -90,20 +90,21 @@ fn = "test"
 maze.save(maze, filename=fn)
 ```
 
-
-For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository of this project.
+For more details, you can find several complete examples of the game loop in the `examples` folder on the github repository of this project. You can also look for the documentation at this [link](https://milowb.github.io/DonatelloDocumentation/html/index.html)
 
 Have fun!
 
 
 ## What's new
 
+- 2024-09-27 (v1.8)
+    Add a RLGame class facilitating the use of RL algorithm.
 - 2024-09-25 (v1.7)
-    Add a reward function in order to play the game with reinforcement learning. Add the possibility to change the color of each cell for debugging
+    Add a reward function in order to play the game with reinforcement learning. Add the possibility to change the color of each cell for debugging.
 - 2023-04-09 (v1.6)
-    Integration of an algorithm assessment class. Allows to evaluate automatically a solution on several mazes
+    Integration of an algorithm assessment class. Allows to evaluate automatically a solution on several mazes.
 - 2023-04-07 (v1.5)
-    Integration of a maze generator from Alexandru Văleanu (https://github.com/AlexandruValeanu/Mazify)
+    Integration of a maze generator from Alexandru Văleanu (https://github.com/AlexandruValeanu/Mazify).
 - 2023-01-17 (v1.2)
     Initial release
 
@@ -114,6 +115,7 @@ Have fun!
 - make tutorials to help beginners use this package
 - make a more formal documentation
 - promote this game through a website
+- ~~add a RLGame class to facilitate the use of RL algorithm for solving the game~~
 - ~~add a reward in the step() method to allow reinforcment learning~~
 - ~~adapt the GUI to resize it depending on the number of cells~~
 - ~~add a test infrastructure to validate users' algorithm on several mazes~~
