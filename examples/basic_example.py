@@ -7,7 +7,7 @@ import time
 
 if __name__ == '__main__':
     # the name of the environment
-    __ENVIRONMENT__ = "maze"
+    __ENVIRONMENT__ = "hard_maze"
     # display the interface (or not)
     __GUI__ = True
 

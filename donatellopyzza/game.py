@@ -1,5 +1,5 @@
-from .turtleAgent import Turtle
-from .envBuilder import *
+from turtleAgent import Turtle
+from envBuilder import *
 
 from enum import Enum
 import warnings

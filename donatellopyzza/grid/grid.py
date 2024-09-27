@@ -77,18 +77,21 @@ class Grid:
         self.display = True
 
     '''
+    @depraciated
     Objectif : @debug
     '''
     def printQvalues(self, qtable):
         self.map.printQvalues(qtable)
 
     '''
+    @depraciated
     Objectif : @debug
     '''
     def countAgents(self):
         return self.map.countAgents()
 
     '''
+    @depraciated
     Objectif : @debug
     '''
     def squarePosition(self, numSquare):
@@ -96,6 +99,7 @@ class Grid:
 
 
     '''
+    @depraciated
     Objectif : indique le bon retour de l'environnement
     '''
     def result_generic_env(self, square, old_square, square_touched, agent, action):
@@ -119,6 +123,7 @@ class Grid:
 
 
     '''
+    @depraciated
     Objectif : indique le bon retour de l'environnement spécifiquement par rapport à l'env1
     qui a des règles un peu particulières sur l'alternance e1 / e2
     '''
