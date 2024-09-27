@@ -43,6 +43,9 @@ class Agent:
     def getCurrentPosition(self):
         return self.position
 
+    def getOrientation(self):
+        return self.orientation
+
     def draw(self, screen, xy, scale):
         cste_angle = 90
         new_angle = cste_angle * self.orientation.value

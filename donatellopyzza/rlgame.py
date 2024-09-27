@@ -6,7 +6,7 @@ import warnings
 import random
 import time
 
-class Game:
+class RLGame:
     def __init__(self, envName, gui):
         self.envName = envName
         self.gui = gui
@@ -42,6 +42,17 @@ class Game:
     '''
     def setSquaresColors(self, colors):
         self.env.setSquaresColors(colors)
+
+    '''
+    Goal : get the position of the turtle
+    Param : turtle - agent whose position we want to know
+    Return : the position (x, y) of the turtle
+    '''
+    def getTurtlePosition(self, turtle):
+        return turtle.agent.getCurrentPosition().position()
+
+    def getTurtleOrientation(self, turtle):
+        return turtle.agent.getOrientation()
 
     '''
     Goal : start the game by initializing the environment

@@ -1,9 +1,10 @@
-from donatellopyzza import Game
+from donatellopyzza import RLGame
 from donatellopyzza import Action
 from donatellopyzza import Feedback
 
+from random import randint
+import pygame
 import time
-
 
 if __name__ == '__main__':
     # the name of the environment
@@ -11,14 +12,17 @@ if __name__ == '__main__':
     # display the interface (or not)
     __GUI__ = True
 
-    game = Game(__ENVIRONMENT__, __GUI__)
+    rlgame = RLGame(__ENVIRONMENT__, __GUI__)
     # returns a turtle that execute actions on its environment
-    turtle = game.start()
+    turtle = rlgame.start()
     
-    while not game.isWon():
+    while not rlgame.isWon():
         actions = [Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.TURN_RIGHT,
             Action.MOVE_FORWARD, Action.MOVE_FORWARD, Action.MOVE_FORWARD]
         # execute the path step by step
         for a in actions:
+            position = rlgame.getTurtlePosition(turtle)
+            orientation = rlgame.getTurtleOrientation(turtle)
+            print("Turtle is on square", position, "and faces", orientation)
             result, _ = turtle.execute(a)
             time.sleep(1)

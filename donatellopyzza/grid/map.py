@@ -67,6 +67,17 @@ class Map:
             self.numbAgents += 1
 
     '''
+    Objectif : Search the square where is the agent
+    Param : agent - agent whose the position we want to know
+    Return : the square where is the agent
+    '''
+    def getAgentCell(self, agent):
+        for sq in self.squares:
+            if sq.isHere(agent):
+                return sq
+        return None
+
+    '''
     directions : 
     0 - haut
     1 - droite
@@ -80,7 +91,7 @@ class Map:
         ori = agent.orientation
         if ori == Orientation.NORTH:
             direction = 0
-        elif ori == Orientation.EST:
+        elif ori == Orientation.EAST:
             direction = 1
         elif ori == Orientation.SOUTH:
             direction = 2
@@ -124,7 +135,7 @@ class Map:
         ori = agent.orientation
         if ori == Orientation.NORTH:
             direction = 0
-        elif ori == Orientation.EST:
+        elif ori == Orientation.EAST:
             direction = 1
         elif ori == Orientation.SOUTH:
             direction = 2
@@ -203,27 +214,6 @@ class Map:
         for sq in self.squares:
             if sq.isHere(agent):
                 return sq
-
-    '''
-    Objectif : @debug
-    Param : [QTable] - La QTable d'un agent
-    '''
-    def printQvalues(self, qtable):
-        print("                           ", "haut     ", "droite    ", "bas    ", "gauche     ")
-        for sq in self.squares:
-            for qt in qtable:
-                if sq.num == qt:
-                    maxi = max(qtable[qt])
-                    bestAction = ""
-                    if maxi == qtable[qt][0]:
-                        bestAction = "haut"
-                    elif maxi == qtable[qt][1]:
-                        bestAction = "droite"
-                    elif maxi == qtable[qt][2]:
-                        bestAction = "bas"
-                    elif maxi == qtable[qt][3]:
-                        bestAction = "gauche"
-                    print(sq.x, ", ", sq.y, " -----> ", qtable[qt], " action dominante : ", bestAction)
 
     '''
     Objectif : Calcule la recompense donnee a un agent

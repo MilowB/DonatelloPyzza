@@ -15,7 +15,6 @@ sys.path.insert(0, os.path.abspath('donatellopyzza/grid'))
 
 from constants import *
 
-
 class Maze:
     def __init__(self, rows, columns):
         assert rows >= 1 and columns >= 1
