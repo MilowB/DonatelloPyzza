@@ -1,10 +1,9 @@
-from .turtleAgent import Turtle
-from .envBuilder import *
-from .enums import Action, Feedback
+from turtleAgent import Turtle
+from envBuilder import *
 
-import warnings
-import random
 import time
+import random
+from enum import Enum
 
 class Game:
     def __init__(self, envName, gui):
@@ -33,7 +32,6 @@ class Game:
     Return : return the aforementioned dictionary
     '''
     def getSquaresDict(self):
-        warnings.warn("Warning: getSquaresDict() should only be used for debugging!", UserWarning)
         return self.env.getSquaresAsDict()
 
     '''
@@ -42,6 +40,13 @@ class Game:
     '''
     def setSquaresColors(self, colors):
         self.env.setSquaresColors(colors)
+
+    '''
+    Goal : modify the text of each non-wall square
+    Param : texts - a dictionary with keys (x, y) and string as values
+    '''
+    def setSquaresText(self, texts):
+        self.env.setSquaresText(texts)
 
     '''
     Goal : start the game by initializing the environment
