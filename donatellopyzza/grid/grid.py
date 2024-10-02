@@ -22,6 +22,21 @@ class Grid:
 
     def setSquaresText(self, texts):
         self.textSquares = texts
+        
+        
+    def updateSquareColor(self, key, color):
+        if self.colorSquares is not None:
+            self.colorSquares[key] = color
+        else:
+            print('Vous devez appeler setSquaresColors avant d\'appeler updateSquareColor')
+
+
+    def updateSquareText(self, key, text):
+        if self.textSquares is not None:
+            self.textSquares[key] = text
+        else:
+            print('Vous devez appeler setSquaresText avant d\'appeler updateSquareText')
+
 
     def getSquaresAsDict(self):
         d = {}

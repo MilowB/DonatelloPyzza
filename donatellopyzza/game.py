@@ -34,6 +34,16 @@ class Game:
     def getSquaresDict(self):
         return self.env.getSquaresAsDict()
 
+
+    def updateSquareColor(self, key, color):
+        self.env.updateSquareColor(key, color)
+        
+    def updateSquareText(self, key , text):
+        self.env.updateSquareText(key, text)
+
+
+
+
     '''
     Goal : modify the color of each non-wall square
     Param : colors - a dictionary with keys (x, y) and pygame.Color as values
