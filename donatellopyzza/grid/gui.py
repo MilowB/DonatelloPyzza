@@ -7,7 +7,7 @@ class GUI:
     def __init__(self, height, width):
         pygame.init()
         self.customizedColors = None
-        self.customizedTexts = []
+        self.customizedTexts = None
         self.squareToDisplay = []
         self.textToDisplay = []
         self.agentToDisplay = []
@@ -62,7 +62,7 @@ class GUI:
         col = pygame.Color(0, 180, 0, 255)
         if end:
             col = color
-
+            
         if touched:
             self.touchedSquare(x, y, self.squareWidth - 1, self.squareWidth - 1)
         elif w == "B":
@@ -70,11 +70,8 @@ class GUI:
         elif w == "p":
             self.squareToDisplay.append([col, (x ,y, width, width)])
         else:
-            if self.customizedColors is None:
+            if not self.customizedColors is None:
                 col = self.customizedColors[(sqx, sqy)]
-            else:
-                print(f"Coordonnées {(sqx, sqy)} non trouvées dans customizedColors. Utilisation de la couleur par défaut.")
-            
             self.squareToDisplay.append([col, (x ,y, width, width)])
 
     '''

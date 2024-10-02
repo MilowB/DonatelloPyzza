@@ -29,21 +29,25 @@ if __name__ == '__main__':
             position = turtle.agent.getCurrentPosition()
             x, y = position.x, position.y
 
-            # Générer une couleur aléatoire pour la case actuelle de l'agent
-            r = random.randint(0, 255)
-            g = random.randint(0, 255)
-            b = random.randint(0, 255)
-            color = pygame.Color(r, g, b, 255)
-
+            """
+            squares = game.getSquaresDict()
+            textSquares = {}
+            for key in squares:
+                # Générer une couleur aléatoire pour la case actuelle de l'agent
+                r = random.randint(0, 255)
+                g = random.randint(0, 255)
+                b = random.randint(0, 255)
+                color = pygame.Color(r, g, b, 255)
+                squares[key] = pygame.Color(r, g, b, 255)
+                textSquares[key] = f"({key[0]}, {key[1]})"
+                
 
             # Mettre à jour la couleur de la case actuelle
-            game.setSquareColor((x, y), color)
-
-            # Mettre à jour le texte de la case avec les coordonnées de l'agent
-            text = f"({x}, {y})"
-            game.setSquareText((x, y), text)        
-            
-            
+            game.setSquaresColors(squares)
+            game.setSquaresText(textSquares)        
+            """
+        
+        
             # Exécuter l'action
             result, _ = turtle.execute(a)
             
@@ -52,4 +56,4 @@ if __name__ == '__main__':
             
 
             # Attendre un peu pour rendre le déplacement visible
-            time.sleep(3)
+            time.sleep(1)
