@@ -14,8 +14,8 @@ class Grid:
         self.agents = a
         self.nbActions = 0
         self.foundPizza = False
-        self.colorSquares = None
-        self.textSquares = None
+        self.colorSquares = None 
+        self.textSquares = None  
 
     def setSquaresColors(self, colors):
         self.colorSquares = colors

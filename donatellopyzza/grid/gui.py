@@ -70,8 +70,10 @@ class GUI:
         elif w == "p":
             self.squareToDisplay.append([col, (x ,y, width, width)])
         else:
-            if not self.customizedColors is None:
+            if self.customizedColors is None:
                 col = self.customizedColors[(sqx, sqy)]
+            else:
+                print(f"Coordonnées {(sqx, sqy)} non trouvées dans customizedColors. Utilisation de la couleur par défaut.")
             
             self.squareToDisplay.append([col, (x ,y, width, width)])
 
