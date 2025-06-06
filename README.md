@@ -14,7 +14,7 @@ This game can be used at several levels:
 
 ## Installation
 
-# Dépendance système (Linux)
+### Dépendance système (Linux)
 
 Avant d'installer `donatellopyzza`, vous devez installer les bibliothèques nécessaires à `pygame` :
 
@@ -23,7 +23,7 @@ sudo apt-get update
 sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libportmidi-dev
 ```
 
-# DonatelloPyzza
+### DonatelloPyzza
 
 `pip install donatellopyzza`
 
