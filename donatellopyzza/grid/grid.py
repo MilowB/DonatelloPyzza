@@ -14,10 +14,29 @@ class Grid:
         self.agents = a
         self.nbActions = 0
         self.foundPizza = False
-        self.colorSquares = None
+        self.colorSquares = None 
+        self.textSquares = None  
 
     def setSquaresColors(self, colors):
         self.colorSquares = colors
+
+    def setSquaresText(self, texts):
+        self.textSquares = texts
+        
+        
+    def updateSquareColor(self, key, color):
+        if self.colorSquares is not None:
+            self.colorSquares[key] = color
+        else:
+            print('Vous devez appeler setSquaresColors avant d\'appeler updateSquareColor')
+
+
+    def updateSquareText(self, key, text):
+        if self.textSquares is not None:
+            self.textSquares[key] = text
+        else:
+            print('Vous devez appeler setSquaresText avant d\'appeler updateSquareText')
+
 
     def getSquaresAsDict(self):
         d = {}
@@ -41,7 +60,6 @@ class Grid:
     '''
     def step(self, agent, action):
         assert action != None and action.value < 4, "you tried to execute an invalid action"
-        # check the game events before executing a new action
         for event in pygame.event.get():
             if event.type == pygame.QUIT:  
                 exit()
@@ -50,21 +68,22 @@ class Grid:
             action = int(action.value)
         square = None
         square_touched = None
-        #Mise a jour de la pile de cases parcourues
+
         squareTmp = self.map.agentNumSquare(agent)
         agent.savePosition(squareTmp)
+        
         if action < 1:
             square = self.map.moveAgent(agent)
         elif action < 3:
             self.map.turnAgent(agent, Turn(action))
         elif action < 4:
             square_touched = self.map.touch(agent)
-        #Mise a jour de la position courante
+        
         square = self.map.getAgentCell(agent)
         agent.setCurrentPosition(square)
 
         if self.display:
-            self.gui.update(self.map, self.colorSquares)
+            self.gui.update(self.map, self.colorSquares, self.textSquares) 
             self.gui.display()
 
         result = self.result_generic_env(square, squareTmp, square_touched, agent, action)

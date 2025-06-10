@@ -7,7 +7,9 @@ class GUI:
     def __init__(self, height, width):
         pygame.init()
         self.customizedColors = None
+        self.customizedTexts = None
         self.squareToDisplay = []
+        self.textToDisplay = []
         self.agentToDisplay = []
         self.height = height
         self.width = width
@@ -34,15 +36,21 @@ class GUI:
     Objectif : Mettre a jour l'image
     Param : map - la grille
     '''
-    def update(self, map, customizedColors=None):
+    def update(self, map, customizedColors=None, customizedTexts=None):
         self.customizedColors = customizedColors
+        self.customizedTexts = customizedTexts
         self.squareWidth = self.scale(len(self.squareToDisplay))
         self.squareToDisplay = []
         self.agentToDisplay = []
+        self.textToDisplay = []  
         for square in map.squares:
             self.square(square.end, square.color, square._char, square.x, square.y, (square.x * self.squareWidth) - self.squareWidth, (square.y * self.squareWidth) - self.squareWidth, square.touched)
             for ag in square._filled:
                 self.agent(square, ag)
+
+            if self.customizedTexts and (square.x, square.y) in self.customizedTexts:
+                text = self.customizedTexts[(square.x, square.y)]
+                self.textToDisplay.append((text, square.x, square.y))
 
     '''
     Objectif : Ajoute un carre a la liste d'affichage
@@ -100,14 +108,28 @@ class GUI:
         black = 0, 0, 0
         green = pygame.Color(0, 180, 0, 255)
         self.screen.fill(black)
+
         for i in range(len(self.squareToDisplay)):
             color = green
             if not self.squareToDisplay[i][0] is None:
                 color = self.squareToDisplay[i][0]
-            pygame.draw.rect(self.screen,  color, self.squareToDisplay[i][1], 0)
+            pygame.draw.rect(self.screen, color, self.squareToDisplay[i][1], 0)
             if self.squareToDisplay[i][0] is None:
                 self.pizza = pygame.transform.scale(self.pizza, (squareWidth, squareWidth))
                 self.screen.blit(self.pizza, self.squareToDisplay[i][1])
+
         for i in range(len(self.agentToDisplay)):
             self.agentToDisplay[i][0].draw(self.screen, self.agentToDisplay[i][1], squareWidth)
+
+        font = pygame.font.Font(None, 24) 
+        for text, x, y in self.textToDisplay:
+            text_surface = font.render(text, True, (255, 255, 255))
+            text_rect = text_surface.get_rect()
+            text_rect.center = (
+                (x * self.squareWidth) - (self.squareWidth // 2), 
+                (y * self.squareWidth) - (self.squareWidth // 2)   
+            )
+
+            self.screen.blit(text_surface, text_rect)
+
         pygame.display.flip()
